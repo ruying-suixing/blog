@@ -1,0 +1,6 @@
+/* 字体css */
+@font-face {
+  font-family: "霞鹜文楷";
+  font-display: swap;
+  src: url("../ttf/霞鹜文楷.ttf") format("truetype");
+}
