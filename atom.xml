@@ -6,7 +6,7 @@
   <link href="https://blog.rusin.cn.mt/atom.xml" rel="self"/>
   
   <link href="https://blog.rusin.cn.mt/"/>
-  <updated>2026-04-20T09:33:05.661Z</updated>
+  <updated>2026-04-20T13:38:16.423Z</updated>
   <id>https://blog.rusin.cn.mt/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>对单一仓库配置小号以远程管理小号仓库</title>
+    <link href="https://blog.rusin.cn.mt/article/372975/"/>
+    <id>https://blog.rusin.cn.mt/article/372975/</id>
+    <published>2026-04-20T13:16:59.000Z</published>
+    <updated>2026-04-20T13:38:16.423Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;命令行操作&quot;&gt;&lt;a href=&quot;#命令行操作&quot; class=&quot;h</summary>
+      
+    
+    
+    
+    <category term="网站开发" scheme="https://blog.rusin.cn.mt/categories/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="VS code" scheme="https://blog.rusin.cn.mt/tags/VS-code/"/>
+    
+    <category term="Git" scheme="https://blog.rusin.cn.mt/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>实获论坛招人了！</title>
     <link href="https://blog.rusin.cn.mt/article/465873/"/>
     <id>https://blog.rusin.cn.mt/article/465873/</id>
     <published>2026-04-20T09:05:40.000Z</published>
-    <updated>2026-04-20T09:33:05.661Z</updated>
+    <updated>2026-04-20T10:20:34.522Z</updated>
     
     
       
@@ -36,20 +60,28 @@
   </entry>
   
   <entry>
-    <title>在 VS code 上远程管理 Github 仓库项目</title>
+    <title>在 VS code 上远程管理 Github 仓库并自动化部署项目</title>
     <link href="https://blog.rusin.cn.mt/article/3290689536/"/>
     <id>https://blog.rusin.cn.mt/article/3290689536/</id>
     <published>2026-04-19T11:47:17.000Z</published>
-    <updated>2026-04-19T13:51:00.635Z</updated>
+    <updated>2026-04-25T11:23:01.645Z</updated>
     
     
       
       
-    <summary type="html">&lt;h2 id=&quot;绑定本地仓库到你已有的-GitHub-远程仓库&quot;&gt;&lt;a href</summary>
+    <summary type="html">&lt;h2 id=&quot;如果-GitHub-远程是没有提交的空仓库&quot;&gt;&lt;a href=&quot;</summary>
       
     
     
     
+    <category term="网站开发" scheme="https://blog.rusin.cn.mt/categories/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="VS code" scheme="https://blog.rusin.cn.mt/tags/VS-code/"/>
+    
+    <category term="Git" scheme="https://blog.rusin.cn.mt/tags/Git/"/>
+    
+    <category term="NodeJS" scheme="https://blog.rusin.cn.mt/tags/NodeJS/"/>
     
   </entry>
   
