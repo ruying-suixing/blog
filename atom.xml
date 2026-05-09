@@ -3,11 +3,11 @@
   <title>如形の小站 - 博客</title>
   
   <subtitle>一个人写博客的日子</subtitle>
-  <link href="https://blog.rusin.cn.mt/atom.xml" rel="self"/>
+  <link href="https://blog.rusin.dpdns.org/atom.xml" rel="self"/>
   
-  <link href="https://blog.rusin.cn.mt/"/>
+  <link href="https://blog.rusin.dpdns.org/"/>
   <updated>2026-04-20T13:38:16.423Z</updated>
-  <id>https://blog.rusin.cn.mt/</id>
+  <id>https://blog.rusin.dpdns.org/</id>
   
   <author>
     <name>Ruyingsuixing</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>对单一仓库配置小号以远程管理小号仓库</title>
-    <link href="https://blog.rusin.cn.mt/article/372975/"/>
-    <id>https://blog.rusin.cn.mt/article/372975/</id>
+    <link href="https://blog.rusin.dpdns.org/article/372975/"/>
+    <id>https://blog.rusin.dpdns.org/article/372975/</id>
     <published>2026-04-20T13:16:59.000Z</published>
     <updated>2026-04-20T13:38:16.423Z</updated>
     
@@ -31,19 +31,19 @@
     
     
     
-    <category term="网站开发" scheme="https://blog.rusin.cn.mt/categories/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/"/>
+    <category term="网站开发" scheme="https://blog.rusin.dpdns.org/categories/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/"/>
     
     
-    <category term="VS code" scheme="https://blog.rusin.cn.mt/tags/VS-code/"/>
+    <category term="VS code" scheme="https://blog.rusin.dpdns.org/tags/VS-code/"/>
     
-    <category term="Git" scheme="https://blog.rusin.cn.mt/tags/Git/"/>
+    <category term="Git" scheme="https://blog.rusin.dpdns.org/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>实获论坛招人了！</title>
-    <link href="https://blog.rusin.cn.mt/article/465873/"/>
-    <id>https://blog.rusin.cn.mt/article/465873/</id>
+    <link href="https://blog.rusin.dpdns.org/article/465873/"/>
+    <id>https://blog.rusin.dpdns.org/article/465873/</id>
     <published>2026-04-20T09:05:40.000Z</published>
     <updated>2026-04-20T10:20:34.522Z</updated>
     
@@ -61,34 +61,34 @@
   
   <entry>
     <title>在 VS code 上远程管理 Github 仓库并自动化部署项目</title>
-    <link href="https://blog.rusin.cn.mt/article/3290689536/"/>
-    <id>https://blog.rusin.cn.mt/article/3290689536/</id>
+    <link href="https://blog.rusin.dpdns.org/article/3290689536/"/>
+    <id>https://blog.rusin.dpdns.org/article/3290689536/</id>
     <published>2026-04-19T11:47:17.000Z</published>
-    <updated>2026-04-25T11:23:01.645Z</updated>
+    <updated>2026-05-06T09:13:14.306Z</updated>
     
     
       
       
-    <summary type="html">&lt;h2 id=&quot;如果-GitHub-远程是没有提交的空仓库&quot;&gt;&lt;a href=&quot;</summary>
+    <summary type="html">&lt;p&gt;&lt;img src= &quot;data:image/gif;base64,R0lG</summary>
       
     
     
     
-    <category term="网站开发" scheme="https://blog.rusin.cn.mt/categories/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/"/>
+    <category term="网站开发" scheme="https://blog.rusin.dpdns.org/categories/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/"/>
     
     
-    <category term="VS code" scheme="https://blog.rusin.cn.mt/tags/VS-code/"/>
+    <category term="VS code" scheme="https://blog.rusin.dpdns.org/tags/VS-code/"/>
     
-    <category term="Git" scheme="https://blog.rusin.cn.mt/tags/Git/"/>
+    <category term="Git" scheme="https://blog.rusin.dpdns.org/tags/Git/"/>
     
-    <category term="NodeJS" scheme="https://blog.rusin.cn.mt/tags/NodeJS/"/>
+    <category term="NodeJS" scheme="https://blog.rusin.dpdns.org/tags/NodeJS/"/>
     
   </entry>
   
   <entry>
     <title>侧边栏添加个性定位欢迎信息</title>
-    <link href="https://blog.rusin.cn.mt/article/2780309151/"/>
-    <id>https://blog.rusin.cn.mt/article/2780309151/</id>
+    <link href="https://blog.rusin.dpdns.org/article/2780309151/"/>
+    <id>https://blog.rusin.dpdns.org/article/2780309151/</id>
     <published>2026-04-06T12:58:53.000Z</published>
     <updated>2026-04-06T13:39:49.478Z</updated>
     
@@ -100,19 +100,19 @@
     
     
     
-    <category term="网站开发" scheme="https://blog.rusin.cn.mt/categories/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/"/>
+    <category term="网站开发" scheme="https://blog.rusin.dpdns.org/categories/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/"/>
     
     
-    <category term="Hexo 美化" scheme="https://blog.rusin.cn.mt/tags/Hexo-%E7%BE%8E%E5%8C%96/"/>
+    <category term="Hexo 美化" scheme="https://blog.rusin.dpdns.org/tags/Hexo-%E7%BE%8E%E5%8C%96/"/>
     
-    <category term="安知鱼美化" scheme="https://blog.rusin.cn.mt/tags/%E5%AE%89%E7%9F%A5%E9%B1%BC%E7%BE%8E%E5%8C%96/"/>
+    <category term="安知鱼美化" scheme="https://blog.rusin.dpdns.org/tags/%E5%AE%89%E7%9F%A5%E9%B1%BC%E7%BE%8E%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>图论之欧拉回路、差分约束——算法笔记</title>
-    <link href="https://blog.rusin.cn.mt/article/2472048401/"/>
-    <id>https://blog.rusin.cn.mt/article/2472048401/</id>
+    <link href="https://blog.rusin.dpdns.org/article/2472048401/"/>
+    <id>https://blog.rusin.dpdns.org/article/2472048401/</id>
     <published>2026-04-03T13:17:47.000Z</published>
     <updated>2026-04-03T13:28:38.048Z</updated>
     
@@ -124,19 +124,19 @@
     
     
     
-    <category term="信息学奥赛" scheme="https://blog.rusin.cn.mt/categories/%E4%BF%A1%E6%81%AF%E5%AD%A6%E5%A5%A5%E8%B5%9B/"/>
+    <category term="信息学奥赛" scheme="https://blog.rusin.dpdns.org/categories/%E4%BF%A1%E6%81%AF%E5%AD%A6%E5%A5%A5%E8%B5%9B/"/>
     
     
-    <category term="题解" scheme="https://blog.rusin.cn.mt/tags/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="https://blog.rusin.dpdns.org/tags/%E9%A2%98%E8%A7%A3/"/>
     
-    <category term="C++" scheme="https://blog.rusin.cn.mt/tags/C/"/>
+    <category term="C++" scheme="https://blog.rusin.dpdns.org/tags/C/"/>
     
   </entry>
   
   <entry>
     <title>第22届浙大宁波理工学院程序设计大赛题解</title>
-    <link href="https://blog.rusin.cn.mt/article/74829/"/>
-    <id>https://blog.rusin.cn.mt/article/74829/</id>
+    <link href="https://blog.rusin.dpdns.org/article/74829/"/>
+    <id>https://blog.rusin.dpdns.org/article/74829/</id>
     <published>2026-04-03T13:00:28.000Z</published>
     <updated>2026-04-03T13:14:41.175Z</updated>
     
@@ -148,19 +148,19 @@
     
     
     
-    <category term="信息学奥赛" scheme="https://blog.rusin.cn.mt/categories/%E4%BF%A1%E6%81%AF%E5%AD%A6%E5%A5%A5%E8%B5%9B/"/>
+    <category term="信息学奥赛" scheme="https://blog.rusin.dpdns.org/categories/%E4%BF%A1%E6%81%AF%E5%AD%A6%E5%A5%A5%E8%B5%9B/"/>
     
     
-    <category term="题解" scheme="https://blog.rusin.cn.mt/tags/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="https://blog.rusin.dpdns.org/tags/%E9%A2%98%E8%A7%A3/"/>
     
-    <category term="比赛" scheme="https://blog.rusin.cn.mt/tags/%E6%AF%94%E8%B5%9B/"/>
+    <category term="比赛" scheme="https://blog.rusin.dpdns.org/tags/%E6%AF%94%E8%B5%9B/"/>
     
   </entry>
   
   <entry>
     <title>题解：P14702 [ICPC 2024 Tehran R] Boat</title>
-    <link href="https://blog.rusin.cn.mt/article/29704/"/>
-    <id>https://blog.rusin.cn.mt/article/29704/</id>
+    <link href="https://blog.rusin.dpdns.org/article/29704/"/>
+    <id>https://blog.rusin.dpdns.org/article/29704/</id>
     <published>2026-04-03T12:38:22.000Z</published>
     <updated>2026-04-03T12:57:58.280Z</updated>
     
@@ -172,19 +172,19 @@
     
     
     
-    <category term="洛谷" scheme="https://blog.rusin.cn.mt/categories/%E6%B4%9B%E8%B0%B7/"/>
+    <category term="洛谷" scheme="https://blog.rusin.dpdns.org/categories/%E6%B4%9B%E8%B0%B7/"/>
     
     
-    <category term="题解" scheme="https://blog.rusin.cn.mt/tags/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="https://blog.rusin.dpdns.org/tags/%E9%A2%98%E8%A7%A3/"/>
     
-    <category term="C++" scheme="https://blog.rusin.cn.mt/tags/C/"/>
+    <category term="C++" scheme="https://blog.rusin.dpdns.org/tags/C/"/>
     
   </entry>
   
   <entry>
     <title>题解：P14731 [ICPC 2022 Seoul R] Parentheses Tree</title>
-    <link href="https://blog.rusin.cn.mt/article/26278/"/>
-    <id>https://blog.rusin.cn.mt/article/26278/</id>
+    <link href="https://blog.rusin.dpdns.org/article/26278/"/>
+    <id>https://blog.rusin.dpdns.org/article/26278/</id>
     <published>2026-04-03T12:36:32.000Z</published>
     <updated>2026-04-03T12:55:09.709Z</updated>
     
@@ -196,19 +196,19 @@
     
     
     
-    <category term="洛谷" scheme="https://blog.rusin.cn.mt/categories/%E6%B4%9B%E8%B0%B7/"/>
+    <category term="洛谷" scheme="https://blog.rusin.dpdns.org/categories/%E6%B4%9B%E8%B0%B7/"/>
     
     
-    <category term="题解" scheme="https://blog.rusin.cn.mt/tags/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="https://blog.rusin.dpdns.org/tags/%E9%A2%98%E8%A7%A3/"/>
     
-    <category term="C++" scheme="https://blog.rusin.cn.mt/tags/C/"/>
+    <category term="C++" scheme="https://blog.rusin.dpdns.org/tags/C/"/>
     
   </entry>
   
   <entry>
     <title>我常常追忆过去</title>
-    <link href="https://blog.rusin.cn.mt/article/38845/"/>
-    <id>https://blog.rusin.cn.mt/article/38845/</id>
+    <link href="https://blog.rusin.dpdns.org/article/38845/"/>
+    <id>https://blog.rusin.dpdns.org/article/38845/</id>
     <published>2026-04-03T12:03:24.000Z</published>
     <updated>2026-04-03T12:41:38.462Z</updated>
     
@@ -220,17 +220,17 @@
     
     
     
-    <category term="生活" scheme="https://blog.rusin.cn.mt/categories/%E7%94%9F%E6%B4%BB/"/>
+    <category term="生活" scheme="https://blog.rusin.dpdns.org/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
-    <category term="美文" scheme="https://blog.rusin.cn.mt/tags/%E7%BE%8E%E6%96%87/"/>
+    <category term="美文" scheme="https://blog.rusin.dpdns.org/tags/%E7%BE%8E%E6%96%87/"/>
     
   </entry>
   
   <entry>
     <title>题解：P14730 [ICPC 2022 Seoul R] Palindrome Type</title>
-    <link href="https://blog.rusin.cn.mt/article/74562/"/>
-    <id>https://blog.rusin.cn.mt/article/74562/</id>
+    <link href="https://blog.rusin.dpdns.org/article/74562/"/>
+    <id>https://blog.rusin.dpdns.org/article/74562/</id>
     <published>2026-03-30T13:35:32.000Z</published>
     <updated>2026-04-03T12:45:34.929Z</updated>
     
@@ -242,19 +242,19 @@
     
     
     
-    <category term="洛谷" scheme="https://blog.rusin.cn.mt/categories/%E6%B4%9B%E8%B0%B7/"/>
+    <category term="洛谷" scheme="https://blog.rusin.dpdns.org/categories/%E6%B4%9B%E8%B0%B7/"/>
     
     
-    <category term="题解" scheme="https://blog.rusin.cn.mt/tags/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="https://blog.rusin.dpdns.org/tags/%E9%A2%98%E8%A7%A3/"/>
     
-    <category term="C++" scheme="https://blog.rusin.cn.mt/tags/C/"/>
+    <category term="C++" scheme="https://blog.rusin.dpdns.org/tags/C/"/>
     
   </entry>
   
   <entry>
     <title>题解：AT_joi2024_yo1c_b 桁 (Digit)</title>
-    <link href="https://blog.rusin.cn.mt/article/54375/"/>
-    <id>https://blog.rusin.cn.mt/article/54375/</id>
+    <link href="https://blog.rusin.dpdns.org/article/54375/"/>
+    <id>https://blog.rusin.dpdns.org/article/54375/</id>
     <published>2026-03-30T11:21:06.000Z</published>
     <updated>2026-04-03T12:54:47.865Z</updated>
     
@@ -266,19 +266,19 @@
     
     
     
-    <category term="洛谷" scheme="https://blog.rusin.cn.mt/categories/%E6%B4%9B%E8%B0%B7/"/>
+    <category term="洛谷" scheme="https://blog.rusin.dpdns.org/categories/%E6%B4%9B%E8%B0%B7/"/>
     
     
-    <category term="题解" scheme="https://blog.rusin.cn.mt/tags/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="https://blog.rusin.dpdns.org/tags/%E9%A2%98%E8%A7%A3/"/>
     
-    <category term="C++" scheme="https://blog.rusin.cn.mt/tags/C/"/>
+    <category term="C++" scheme="https://blog.rusin.dpdns.org/tags/C/"/>
     
   </entry>
   
   <entry>
     <title>题解：CF2139B Cake Collection</title>
-    <link href="https://blog.rusin.cn.mt/article/18290/"/>
-    <id>https://blog.rusin.cn.mt/article/18290/</id>
+    <link href="https://blog.rusin.dpdns.org/article/18290/"/>
+    <id>https://blog.rusin.dpdns.org/article/18290/</id>
     <published>2026-03-23T13:33:21.000Z</published>
     <updated>2026-04-03T12:52:57.449Z</updated>
     
@@ -290,19 +290,19 @@
     
     
     
-    <category term="洛谷" scheme="https://blog.rusin.cn.mt/categories/%E6%B4%9B%E8%B0%B7/"/>
+    <category term="洛谷" scheme="https://blog.rusin.dpdns.org/categories/%E6%B4%9B%E8%B0%B7/"/>
     
     
-    <category term="题解" scheme="https://blog.rusin.cn.mt/tags/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="https://blog.rusin.dpdns.org/tags/%E9%A2%98%E8%A7%A3/"/>
     
-    <category term="C++" scheme="https://blog.rusin.cn.mt/tags/C/"/>
+    <category term="C++" scheme="https://blog.rusin.dpdns.org/tags/C/"/>
     
   </entry>
   
   <entry>
     <title>免费获取二级域名并部署 github 仓库</title>
-    <link href="https://blog.rusin.cn.mt/article/46209/"/>
-    <id>https://blog.rusin.cn.mt/article/46209/</id>
+    <link href="https://blog.rusin.dpdns.org/article/46209/"/>
+    <id>https://blog.rusin.dpdns.org/article/46209/</id>
     <published>2026-03-23T13:14:10.000Z</published>
     <updated>2026-04-06T13:04:41.121Z</updated>
     
@@ -314,15 +314,15 @@
     
     
     
-    <category term="网站开发" scheme="https://blog.rusin.cn.mt/categories/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/"/>
+    <category term="网站开发" scheme="https://blog.rusin.dpdns.org/categories/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/"/>
     
     
   </entry>
   
   <entry>
     <title>博客迁移分流说明</title>
-    <link href="https://blog.rusin.cn.mt/article/47960/"/>
-    <id>https://blog.rusin.cn.mt/article/47960/</id>
+    <link href="https://blog.rusin.dpdns.org/article/47960/"/>
+    <id>https://blog.rusin.dpdns.org/article/47960/</id>
     <published>2026-03-20T13:43:41.000Z</published>
     <updated>2026-04-03T12:39:14.477Z</updated>
     
@@ -334,17 +334,17 @@
     
     
     
-    <category term="其他" scheme="https://blog.rusin.cn.mt/categories/%E5%85%B6%E4%BB%96/"/>
+    <category term="其他" scheme="https://blog.rusin.dpdns.org/categories/%E5%85%B6%E4%BB%96/"/>
     
     
-    <category term="公告" scheme="https://blog.rusin.cn.mt/tags/%E5%85%AC%E5%91%8A/"/>
+    <category term="公告" scheme="https://blog.rusin.dpdns.org/tags/%E5%85%AC%E5%91%8A/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://blog.rusin.cn.mt/article/23436/"/>
-    <id>https://blog.rusin.cn.mt/article/23436/</id>
+    <link href="https://blog.rusin.dpdns.org/article/23436/"/>
+    <id>https://blog.rusin.dpdns.org/article/23436/</id>
     <published>2026-03-19T10:15:52.664Z</published>
     <updated>2026-04-03T12:40:59.360Z</updated>
     
