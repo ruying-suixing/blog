@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="/config/feed/atom.xsl" ?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>如形の小站 - 博客</title>
+  <title>如形の</title>
   
-  <subtitle>一个人写博客的日子</subtitle>
+  <subtitle>博客</subtitle>
   <link href="https://blog.rusin.dpdns.org/atom.xml" rel="self"/>
   
   <link href="https://blog.rusin.dpdns.org/"/>
