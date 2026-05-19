@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Vercel 仅部署指定分支的方法</title>
+    <url>/article/2431487467/</url>
+    <content><![CDATA[如何指定特殊分支
+从仪表板中选择的项目
+在侧边栏中打开 Settings。
+点击 Environments。
+点击 Production 环境（&#x2F;settings&#x2F;environments&#x2F;production）。
+
+这样配置之后，Vercel 仍然会在任一分支更改时自动构建，结果当然是 Error  了！怎么办呢？
+
+
+使用分支跟踪（推荐）最直接的方法是在项目设置中配置分支跟踪。默认情况下，Vercel 会在所有分支上触发部署，但可以指定 main  red %} 分支作为生产环境分支，这样只有 main  分支的变更才会触发生产部署。
+开启分支跟踪非常简单，按照以下步骤操作：
+
+从仪表板中选择的项目
+在侧边栏中打开 Settings。
+点击 Environments。
+点击 Production 环境（&#x2F;settings&#x2F;environments&#x2F;production）。
+在 Branch Tracking 中，输入想要追踪的分支名称，例如 main 。  
+点击 Save。
+
+还可以在 Preview 环境（&#x2F;settings&#x2F;environments&#x2F;preview）中关闭 Branch Tracking。这样就可以确保只有 main  分支的变更才会触发任何构建。
+使用 git 配置在项目根目录的 vercel.json 文件中添加 git.deploymentEnabled 配置，精确控制哪些分支可以触发部署：
+&#123;  &quot;git&quot;: &#123;    &quot;deploymentEnabled&quot;: &#123;      &quot;main&quot;: true    &#125;  &#125;&#125;
+
+使用忽略构建步骤如果需要更灵活的控制，可以在项目设置的“忽略构建步骤”部分使用自定义 Bash 脚本：
+#!/bin/bashif [[ &quot;$VERCEL_GIT_COMMIT_REF&quot; == &quot;main&quot; ]]; then  exit 1  # 继续构建else  exit 0  # 跳过构建fi
+]]></content>
+      <categories>
+        <category>网站开发</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/article/23436/</url>
+    <content><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post$ hexo new &quot;My New Post&quot;
+
+More info: Writing
+Run server$ hexo server
+
+More info: Server
+Generate static files$ hexo generate
+
+More info: Generating
+Deploy to remote sites$ hexo deploy
+
+More info: Deployment
+]]></content>
+  </entry>
+  <entry>
     <title>侧边栏添加个性定位欢迎信息</title>
     <url>/article/2780309151/</url>
     <content><![CDATA[前景介绍 查看代码测试 
@@ -40,27 +94,9 @@ Q: 距离显示不准确?A: 正常现象，计算有无法避免的误差，在 
         <category>网站开发</category>
       </categories>
       <tags>
-        <tag>Hexo 美化</tag>
+        <tag>Hexo</tag>
         <tag>安知鱼美化</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/article/23436/</url>
-    <content><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post$ hexo new &quot;My New Post&quot;
-
-More info: Writing
-Run server$ hexo server
-
-More info: Server
-Generate static files$ hexo generate
-
-More info: Generating
-Deploy to remote sites$ hexo deploy
-
-More info: Deployment
-]]></content>
   </entry>
   <entry>
     <title>博客迁移分流说明</title>
@@ -282,8 +318,8 @@ npm run buildnpm run deploy
         <category>网站开发</category>
       </categories>
       <tags>
-        <tag>VS code</tag>
         <tag>Git</tag>
+        <tag>VS code</tag>
         <tag>NodeJS</tag>
       </tags>
   </entry>
@@ -364,8 +400,8 @@ npm run buildnpm run deploy
         <category>网站开发</category>
       </categories>
       <tags>
-        <tag>VS code</tag>
         <tag>Git</tag>
+        <tag>VS code</tag>
       </tags>
   </entry>
   <entry>
@@ -386,24 +422,36 @@ npm run buildnpm run deploy
       </tags>
   </entry>
   <entry>
-    <title>题解：AT_joi2024_yo1c_b 桁 (Digit)</title>
-    <url>/article/54375/</url>
-    <content><![CDATA[AT_joi2024_yo1c_b 桁 (Digit)题解题目传送门
-题目大意给出 $a, b$，求 $a+b$ 的位数。
-思路引导提问如何统计 $a+b$ 的位数？
+    <title>拯救谷歌和 Github！你的新“自行车”</title>
+    <url>/article/291152786/</url>
+    <content><![CDATA[还在为谷歌无法访问而发愁吗？这个宝藏项目一定要收藏好😍！顺便还能秒开 Github！
+快速安装打开 Release，找到最新版本，安装包选择方式：
+
+Windows：DevSidecar-x.x.x-windows-universal.exe
+Mac: DevSidecar-x.x.x-macos-universal.dmg
+Linux: 
+Debian 系等支持 Deb 的：DevSidecar-x.x.x-linux-&lt;架构&gt;.deb
+其他：DevSidecar-x.x.x-linux-&lt;架构&gt;.AppImage
 
 
-成功我们将 $a+b$ 转化为字符串函数大法好，输出 $a+b$ 的长度即可。
+
+安装可能有点慢，建议以下 4 选 1 加速安装（我的是 2.0.2 Windows 版本，具体链接为 https://gh-proxy.org/+Github 原始链接）：
+
+主站，全球加速！
+
+香港国内线路优化
+
+Fastly CDN
+
+Edgeone 全球加速
 
 
-核心代码#include&lt;bits/stdc++.h&gt;using namespace std; int a, b; int main() &#123;	cin&gt;&gt;a&gt;&gt;b;	cout&lt;&lt;to_string(a+b).size();//需使用洛谷IDE中C++14 (GCC 9)及以上版本，蓝C++会CE	return 0;&#125;
 ]]></content>
       <categories>
-        <category>洛谷</category>
+        <category>网站开发</category>
       </categories>
       <tags>
-        <tag>题解</tag>
-        <tag>C++</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -484,26 +532,17 @@ typedef long long ll;ll dp[2][40400][3]; ll num[505050];struct MoveResult &#123;
       </tags>
   </entry>
   <entry>
-    <title>题解：P14702 [ICPC 2024 Tehran R] Boat</title>
-    <url>/article/29704/</url>
-    <content><![CDATA[P14702 [ICPC 2024 Tehran R] Boat 题解题目传送门
-贪心，细节较多。
-思路分析先特判无解情况。
-提示
-
-如果某个重量大于最大载重量 $w$，输出 −1，结束。
-如果最轻的两个人重量之和超过了 $w$，即无人可以当船夫，输出 −1，结束。
+    <title>题解：AT_joi2024_yo1c_b 桁 (Digit)</title>
+    <url>/article/54375/</url>
+    <content><![CDATA[AT_joi2024_yo1c_b 桁 (Digit)题解题目传送门
+题目大意给出 $a, b$，求 $a+b$ 的位数。
+思路引导提问如何统计 $a+b$ 的位数？
 
 
+成功我们将 $a+b$ 转化为字符串函数大法好，输出 $a+b$ 的长度即可。
 
-否则一定有解，尽量让两人配对上船，为了用最少次数，先 sort 从小到大排序，再让最轻的人作为船夫，分为两种情况：
 
-如果 $a_i+a_1 \leq w$，可以和最轻的人一起上船，可载两人。这样运送要 $2$ 次，$ans \leftarrow ans+2$。
-否则，不可以和最轻的人一起上船，只载一人。这样运送要 $4$ 次，$ans \leftarrow ans+4$。
-
-最后船夫不回来，所以输出 $ans-1$。
-代码按思路写即可，注意细节，这里不放了。
-结语感谢您的阅读！
+核心代码#include&lt;bits/stdc++.h&gt;using namespace std; int a, b; int main() &#123;	cin&gt;&gt;a&gt;&gt;b;	cout&lt;&lt;to_string(a+b).size();//需使用洛谷IDE中C++14 (GCC 9)及以上版本，蓝C++会CE	return 0;&#125;
 ]]></content>
       <categories>
         <category>洛谷</category>
@@ -541,6 +580,36 @@ DFS 函数使用 双指针。
 
 
 核心代码bool dfs(int l, int r, int step)&#123;    while(l&lt;r)&#123;        if(s[l]==s[r])l++,r--;        else&#123;            if(!step)return 0;            if(dfs(l+1,r,step-1)||dfs(l,r-1,step-1))return 1;            return 0;        &#125;    &#125;    return 1;&#125;
+]]></content>
+      <categories>
+        <category>洛谷</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>题解：P14702 [ICPC 2024 Tehran R] Boat</title>
+    <url>/article/29704/</url>
+    <content><![CDATA[P14702 [ICPC 2024 Tehran R] Boat 题解题目传送门
+贪心，细节较多。
+思路分析先特判无解情况。
+提示
+
+如果某个重量大于最大载重量 $w$，输出 −1，结束。
+如果最轻的两个人重量之和超过了 $w$，即无人可以当船夫，输出 −1，结束。
+
+
+
+否则一定有解，尽量让两人配对上船，为了用最少次数，先 sort 从小到大排序，再让最轻的人作为船夫，分为两种情况：
+
+如果 $a_i+a_1 \leq w$，可以和最轻的人一起上船，可载两人。这样运送要 $2$ 次，$ans \leftarrow ans+2$。
+否则，不可以和最轻的人一起上船，只载一人。这样运送要 $4$ 次，$ans \leftarrow ans+4$。
+
+最后船夫不回来，所以输出 $ans-1$。
+代码按思路写即可，注意细节，这里不放了。
+结语感谢您的阅读！
 ]]></content>
       <categories>
         <category>洛谷</category>

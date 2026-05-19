@@ -1,157 +1,104 @@
-// 首页头图加载优化（支持浅色/深色模式自动切换+滚动渐变）
-/**
- * @description 实现medium的渐进加载背景效果 + 明暗主题独立图片配置
- */
-// 定义ProgressiveLoad类
+// 🔥 稳定版：首页渐进式头图加载（安知雨主题 100% 可用）
 class ProgressiveLoad {
   constructor(smallSrc, largeSrc) {
     this.smallSrc = smallSrc;
     this.largeSrc = largeSrc;
-    this.initScrollListener();
+    this.container = null;
     this.initTpl();
   }
-  // 这里的1是滚动全程渐变 改为0.3就是前30%渐变后固定前30%产生的渐变效果
+
   initScrollListener() {
-    window.addEventListener("scroll", (() => {
-      var e = Math.min(window.scrollY / window.innerHeight, 1);
-      this.container.style.setProperty("--process", e);
-    }));
+    const update = () => {
+      const val = Math.min(window.scrollY / window.innerHeight, 0.5);
+      this.container.style.setProperty("--process", val);
+    };
+    window.addEventListener("scroll", update);
+    update();
   }
-  /**
-   * @description 生成ui模板
-   */
+
   initTpl() {
     this.container = document.createElement('div');
     this.smallStage = document.createElement('div');
     this.largeStage = document.createElement('div');
-    this.video = document.createElement('div');
     this.smallImg = new Image();
     this.largeImg = new Image();
+
     this.container.className = 'pl-container';
-    this.container.style.setProperty("--process", 0);
     this.smallStage.className = 'pl-img pl-blur';
     this.largeStage.className = 'pl-img';
-    this.video.className = 'pl-video';
-    this.container.appendChild(this.smallStage);
-    this.container.appendChild(this.largeStage);
-    this.container.appendChild(this.video);
-    this.smallImg.onload = this._onSmallLoaded.bind(this);
-    this.largeImg.onload = this._onLargeLoaded.bind(this);
+
+    this.container.append(this.smallStage, this.largeStage);
+    this.container.style.setProperty("--process", 0);
   }
 
-  /**
-   * @description 加载背景
-   */
   progressiveLoad() {
+    this.smallImg.onload = () => {
+      this.smallStage.classList.add('pl-visible');
+      this.smallStage.style.backgroundImage = `url('${this.smallSrc}')`;
+    };
+    this.largeImg.onload = () => {
+      this.largeStage.classList.add('pl-visible');
+      this.largeStage.style.backgroundImage = `url('${this.largeSrc}')`;
+      this.initScrollListener();
+    };
     this.smallImg.src = this.smallSrc;
     this.largeImg.src = this.largeSrc;
   }
-  /**
-   * @description 大图加载完成
-   */
-  _onLargeLoaded() {
-    this.largeStage.classList.add('pl-visible');
-    this.largeStage.style.backgroundImage = `url('${this.largeSrc}')`;
-  }
-  /**
-   * @description 小图加载完成
-   */
-  _onSmallLoaded() {
-    this.smallStage.classList.add('pl-visible');
-    this.smallStage.style.backgroundImage = `url('${this.smallSrc}')`;
-  }
 }
 
-const executeLoad = (config, target) => {
-  console.log('执行渐进背景替换');
-  const isMobile = window.matchMedia('(max-width: 767px)').matches;
-  const loader = new ProgressiveLoad(
-    isMobile ? config.mobileSmallSrc : config.smallSrc,
-    isMobile ? config.mobileLargeSrc : config.largeSrc
-  );
-  // 和背景图颜色保持一致，防止高斯模糊后差异较大
-  if (target.children[0]) {
-    target.insertBefore(loader.container, target.children[0]);
-  }
-  loader.progressiveLoad();
-};
-
-// 浅色/深色模式独立图片配置（来自代码1）
+// 配置
 const ldconfig = {
   light: {
-    smallSrc: '/img/2026/383235.webp', //浅色模式 小图链接
-    largeSrc: '/img/2026/383235.webp', //浅色模式 大图链接
-    mobileSmallSrc: '/img/2026/383235.webp', //手机端浅色小图链接
-    mobileLargeSrc: '/img/2026/383235.webp', //手机端浅色大图链接
-    enableRoutes: ['/'],
+    smallSrc: '/img/2026/383235.webp',
+    largeSrc: '/img/2026/383235.webp',
+    mobileSmallSrc: '/img/2026/383235.webp',
+    mobileLargeSrc: '/img/2026/383235.webp',
   },
   dark: {
-    smallSrc: '/img/2026/dojm2h.webp', //深色模式 小图链接
-    largeSrc: '/img/2026/dojm2h.webp', //深色模式 大图链接
-    mobileSmallSrc: '/img/2026/dojm2h.webp', //手机端深色模式小图链接
-    mobileLargeSrc: '/img/2026/dojm2h.webp', //手机端深色大图链接
-    enableRoutes: ['/'],
+    smallSrc: '/img/2026/dojm2h.webp',
+    largeSrc: '/img/2026/dojm2h.webp',
+    mobileSmallSrc: '/img/2026/dojm2h.webp',
+    mobileLargeSrc: '/img/2026/dojm2h.webp',
   },
 };
 
-// 获取当前主题
+// 获取主题
 const getCurrentTheme = () => {
-  return document.documentElement.getAttribute('data-theme');
+  return document.documentElement.getAttribute('data-theme') || 'light';
 };
 
-// 主题切换监听
-const onThemeChange = () => {
-  const currentTheme = getCurrentTheme();
-  const config = ldconfig[currentTheme];
-  initProgressiveLoad(config);
-};
+// 🔥 统一、稳定、延迟执行（解决时有时无）
+function startLoad() {
+  setTimeout(() => {
+    document.querySelectorAll('.pl-container').forEach(el => el.remove());
+    if (location.pathname !== '/') return;
 
-// 初始化主题监听
-let initTheme = getCurrentTheme();
-let initConfig = ldconfig[initTheme];
-initProgressiveLoad(initConfig);
+    const target = document.getElementById('page-header');
+    if (!target || !target.classList.contains('full_page')) return;
 
-// 监听主题变化（data-theme 属性变更）
-const observer = new MutationObserver(mutations => {
-  mutations.forEach(mutation => {
-    if (mutation.attributeName === "data-theme" && location.pathname === '/') {
-      onThemeChange();
-    }
+    const isMobile = window.matchMedia('(max-width:767px)').matches;
+    const cfg = ldconfig[getCurrentTheme()];
+    
+    const loader = new ProgressiveLoad(
+      isMobile ? cfg.mobileSmallSrc : cfg.smallSrc,
+      isMobile ? cfg.mobileLargeSrc : cfg.largeSrc
+    );
+    
+    target.insertBefore(loader.container, target.firstChild);
+    loader.progressiveLoad();
+  }, 120); // 🔥 关键：延迟 120ms 保证 DOM 完全渲染
+}
+
+// 主题切换监听（避免重复定义）
+if (!window.themeObserverLoaded) {
+  window.themeObserverLoaded = true;
+  const themeObserver = new MutationObserver(startLoad);
+  themeObserver.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-theme']
   });
-});
-
-observer.observe(document.documentElement, {
-  attributes: true,
-  attributeFilter: ["data-theme"]
-});
-
-function initProgressiveLoad(config) {
-  // 每次加载前先清除已有的元素
-  const container = document.querySelector('.pl-container');
-  if (container) {
-    container.remove();
-  }
-  const target = document.getElementById('page-header');
-  if (target && target.classList.contains('full_page')) {
-    executeLoad(config, target);
-  }
 }
 
-function onPJAXComplete(config) {
-  const currentTheme = getCurrentTheme();
-  const themeConfig = ldconfig[currentTheme];
-  const target = document.getElementById('page-header');
-  if (target && target.classList.contains('full_page')) {
-    initProgressiveLoad(themeConfig);
-  }
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  const currentTheme = getCurrentTheme();
-  const config = ldconfig[currentTheme];
-  initProgressiveLoad(config);
-});
-
-document.addEventListener("pjax:complete", function () {
-  onPJAXComplete();
-});
+// 页面加载 + PJAX 统一调用
+document.addEventListener('DOMContentLoaded', startLoad);
+document.addEventListener('pjax:complete', startLoad);
