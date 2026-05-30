@@ -3,18 +3,21 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 如影随形的博客
-subtitle: '一个人写博客的日子'
+title: 如形の博客
+subtitle: ''
 description: '一个洛谷蒟蒻的 Hexo 博客，主题是安知鱼，记录一些学习和生活的点滴。欢迎大家访问！'
-keywords: C++, Python, Java, Hexo, 博客, 生活, 学习, 技术, 记录, 分享, 如影随形, 安知鱼, 洛谷, github
+keywords: C++, Python, Java, Hexo, 博客, 生活, 学习, 技术, 记录, 分享, 如形の小站, 安知鱼, 洛谷, github
 author: Ruyingsuixing
 language: zh-CN
 timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://blog.rusin.cn.mt
+url: https://blog.rusin.lol
 permalink: article/:abbrlink/
+abbrlink:
+  alg: crc32 #support crc16(default) and crc32
+  rep: dec   #support dec(default) and hex
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -102,7 +105,7 @@ theme: hexo-theme-anzhiyu-1.7.1
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: 'git'
-  repo: https://github.com/ruying-suixing/blog.git
+  repo: git@github.com:ruying-suixing/blog.git
   branch: main
 
 # Local search
@@ -115,19 +118,6 @@ search:
 aplayer:
   meting: true
   asset_inject: false
-
-# RSS订阅源
-# hexo-pretty-feed
-feed:
-  enable: true
-  type: atom
-  path: atom.xml
-  limit: 25
-  content: false
-  content_limit: 40
-  pretty_atom_file: /atom.xsl
-  pretty_rss2_file: /rss2.xsl
-  charset: utf-8 
 
 serve:
   mime:
@@ -152,26 +142,23 @@ hexo_safego:
     apply_containers:           # 应用的容器选择器
       - '#article-container'
     apply_pages:                # 应用的页面路径
-      - "/2026/"
+      - "/article/"
     exclude_pages:              # 排除的页面路径
   # 域名白名单
   whitelist:
     domain_whitelist:           # 允许的白名单域名
-       - "qyliu.top"
+       - "life.rusin.lol"
+       - "rusin.lol"
   # 页面外观设置
   appearance:
     avatar: /favicon.ico    # 头像路径
     title: "如形の小站"            # 页面标题
     subtitle: "安全中心"         # 页面副标题
     darkmode: true              # 是否启用深色模式
-    countdowntime: -1           # 倒计时秒数
+    countdowntime: 5           # 倒计时秒数
   # 调试设置
   debug:
-    enable: false               # 启用调试模式c
-
-# hexo-abbrlink2
-abbrlink:
-  start: 100 # 启起始文章id，默认为0 ，可以自定义，比如100
+    enable: false               # 启用调试模式
 
 nofollow:
   enable: true  #true/false 启用/关闭插件
@@ -191,7 +178,7 @@ hexo_submit_urls_to_search_engine:
   txt_path: submit_urls.txt ## 文本文档名， 需要推送的链接会保存在此文本文档里
   baidu_host: https://dejavu.moe ## 在百度站长平台中注册的域名
   baidu_token: xxxxxxxxxxx  ## 请注意这是您的秘钥， 所以请不要把它直接发布在公众仓库里!
-  bing_host: https://blog.rusin.cn.mt ## 在bing站长平台中注册的域名
+  bing_host: https://blog.rusin.lol ## 在bing站长平台中注册的域名
   bing_token: a902e47193c045378959ee28712b5c93  ## 请注意这是您的秘钥， 所以请不要把它直接发布在公众仓库里!
   google_host: https://dejavu.moe ## 在google站长平台中注册的域名
   google_proxy: http://127.0.0.1:7890 # 向谷歌提交网址所使用的系统 http 代理，填 0 不使用，以Clash为例
@@ -202,3 +189,20 @@ hexo_submit_urls_to_search_engine:
 
 sitemap:
   path: sitemap.xml
+
+# offline config passed to sw-precache.
+service_worker:
+  maximumFileSizeToCacheInBytes: 5242880
+  staticFileGlobs:
+  - public/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff,woff2}
+  stripPrefix: public
+  verbose: true
+  runtimeCaching:
+    - urlPattern: /*
+      handler: cacheFirst
+      options:
+        origin: cdn.some.com
+    - urlPattern: /*
+      handler: cacheFirst
+      options:
+        origin: cdn.some-else.org

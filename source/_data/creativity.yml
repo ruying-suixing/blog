@@ -1,5 +1,8 @@
 - class_name: 开启创造力
   creativity_list:
+    - name: C++
+      color: "#357ef5"
+      icon: /img/top_cover/Cpp-logo.png
     - name: Java
       color: "#fff"
       icon: https://upload-bbs.miyoushe.com/upload/2025/07/29/125766904/26ba17ce013ecde9afc8b373e2fc0b9d_1804318147854602575.jpg

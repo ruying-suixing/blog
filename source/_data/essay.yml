@@ -1,6 +1,6 @@
-- name: 梦爱吃鱼 # 姓名
-  desc: 不负心灵，不负今生 # 个签
-  avatar: https://lib.bsgun.cn/Hexo-static/img/avatar.256.avif # 头像
+- name: 如影随形 # 姓名
+  desc: 回头看，是为了更好地前行 # 个签
+  avatar: /favicon.ico # 头像
   avatarLink: /about/ # 点击头像跳转链接
   limit: 30
   home_essay: true
@@ -14,9 +14,18 @@
   #     -
   #   image:      # 图片链接支持多个
   #     -
-    - content: 看看我的新图床，在GitHub开源了OWO，演示站点下面链接
-      date: 2024/07/10
+    - content: 看看我的新主页，马上就要在GitHub开源了OWO，演示站点下面链接
+      date: 2026/03/28
       image:
-        - https://lib.bsgun.cn/2024/07/27/597131.webp
-      address: 郑州·金水区
-      link: https://dev.bsgun.cn
+        - /img/2026/zhuye.png
+      address: 宁波 · 江北区
+      link: https://rusin.cn.mt
+    - content: 清明到了，缅怀先人，珍惜当下，愿逝者安息，生者平安，网站已变灰。
+      date: 2026/04/05 8:00
+      image:
+        - /img/2026/qingming.png
+        - /img/2026/qingming2.png
+      address: 宁波 · 江北区
+    - content: 谷雨到了，春天的最后一个节气，万物生长，愿你我都能在这个季节里收获满满。
+      date: 2026/04/20 14:00
+      address: 宁波 · 江北区

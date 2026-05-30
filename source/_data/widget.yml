@@ -11,9 +11,17 @@ top:
         <span class="cd-date" id="eventDate"></span>
       </div>
       <div id="countRight" class="cd-count-right"></div>
+      <div id="fps"></div>
   - class_name: card-boringbay
     id_name:
     name: 无聊湾
     icon: fas fa-face-meh
     html: |
-      <a title="无聊湾 🥱 The Boring Bay" href="https://boringbay.com"><img height="18px" src="https://boringbay.com/api/badge/blog.rusin.cn.mt"></img></a>
+      <a title="无聊湾 🥱 The Boring Bay" href="https://boringbay.com"><img height="50px" src="https://boringbay.com/api/badge/blog.rusin.dpdns.org"></img></a>
+  - class_name: likeme
+    id_name:
+    name: 点赞
+    icon: fa fa-thumbs-up
+    html: |
+      <br>
+      <div id="likeme"></div>

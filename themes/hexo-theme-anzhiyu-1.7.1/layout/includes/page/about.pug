@@ -11,6 +11,8 @@ if site.data.about
     - let crrList = careers.list
     - let crrItem = careers.item
     - let avatarSkills = item.avatarSkills
+    - let tenyear = item.tenyear || null
+
     #about-page
       .author-box
         if avatarSkills
@@ -23,8 +25,10 @@ if site.data.about
           .author-tag-right
             each item in avatarSkills.right
               span.author-tag=item
+
       p.p.center.logo.large=_p('about.title')
       p.p.center.small=subtitle
+
       .author-content
         .author-content-item.myInfoAndSayHello
           .title1=_p('about.hello')
@@ -47,16 +51,16 @@ if site.data.about
               span(data-up)= word[word.length - 2]
               |  
               span(data-show)= word[word.length - 1]
-      
+
       .hello-about
-        .cursor(style='translate:none;rotate:none;scale:none;transform:translate(721px,180px)')
+        .cursor
         .shapes
-          .shape.shape-1(style='translate:none;rotate:none;scale:none;transform:translate(721px,180px)')
-          .shape.shape-2(style='translate:none;rotate:none;scale:none;transform:translate(721px,180px)')
-          .shape.shape-3(style='translate:none;rotate:none;scale:none;transform:translate(721px,180px)')
+          .shape.shape-1
+          .shape.shape-2
+          .shape.shape-3
         .content
           h1=helloAbout
-      
+
       .author-content
         .author-content-item.skills
           .card-content
@@ -88,7 +92,7 @@ if site.data.about
                 .careers-none
             if careers.img
               img.author-content-img.no-lightbox(alt=careers.tips, src=url_for(careers.img) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'`)
-      
+
       .author-content
         if theme.LA.enable || theme.umami.enable
           - let cover = item.statistic.cover
@@ -139,7 +143,7 @@ if site.data.about
               span.selfInfo-title=selfInfoTips3
               |  
               span.selfInfo-content(style='color:#b04fe6')=selfInfoContent3
-      
+
       .author-content
         .author-content-item.personalities
           - let {author_name, personality_type, photo_url, personality_img, name_url, personality_type_color} = item.personalities
@@ -153,7 +157,7 @@ if site.data.about
             img.no-lightbox(src=url_for(personality_img), alt=_p('about.personality_img_alt'))
         .author-content-item.myphoto
           img.author-content-img.no-lightbox(alt=_p('about.selfie_alt'), src=url_for(photo_url))
-      
+
       .author-content
         .author-content-item.maxim
           - let {maxim_tips, maxim_top, maxim_bottom} = item.maxim
@@ -164,7 +168,7 @@ if site.data.about
             span=maxim_bottom
         .author-content-item.buff
           .card-content
-          - let {buff_tips, buff_top, buff_bottom} = item.buff
+            - let {buff_tips, buff_top, buff_bottom} = item.buff
             .author-content-item-tips=buff_tips
             span.buff-title
               span(style='opacity:.6;margin-bottom:8px')=buff_top
@@ -194,7 +198,7 @@ if site.data.about
                   a.comic-item(href=i.href, target="_blank", title=i.name)
                     .comic-item-cover
                       img(src=i.cover, alt=i.name)
-      
+
       .author-content
         - let {music_tips, music_title, music_link, music_bg} = item.music
         - let {like_tips, like_title, like_bottom, like_bg} = item.like
@@ -216,11 +220,69 @@ if site.data.about
                 |  
                 span.banner-button-text=_p('about.more_recommend')
 
-      if page.content
-        .author-content
-          .create-site-post.author-content-item.single
-            != page.content
-        
+      .author-content#tenyear
+        .create-site-post.author-content-item.single
+          .author-content-item-tips= '十年之约'
+          .author-content-item-title= '回头看，是为了更好地前行'
+          p= '用心坚持，静待十年'
+          .tenyear-timeline
+            .progress
+              .percentage-label  <!-- 关键：把百分比放进进度条内部 -->
+            .past-time
+          .time-labels
+            .start-time#tenyear-start-time= new Date('2026-03-19').toLocaleDateString()
+            .end-time#tenyear-end-time= new Date('2036-03-19').toLocaleDateString()
+
+      style.
+        .tenyear-timeline {
+          position: relative;
+          width: 100%;
+          height: 80px;
+          background: var(--anzhiyu-secondbg);
+          border-radius: 4px;
+          margin: 20px 0;
+          overflow: visible;
+        }
+        .tenyear-timeline .progress {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: var(--progress-percentage, 0%);
+          height: 100%;
+          background: linear-gradient(90deg, #425AEF, #7b61ff, #392092);
+          border-radius: 4px;
+          transition: width 1s ease;
+          position: relative;
+          z-index: 1;
+        }
+        .tenyear-timeline .past-time {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: var(--past-time-percentage, 0%);
+          height: 100%;
+          background: rgba(66, 90, 239, 0.2);
+          border-radius: 4px;
+        }
+        .tenyear-timeline .percentage-label {
+          position: absolute;
+          top: 50%;
+          right: 10px;
+          transform: translateY(-50%);
+          color: #6caea8;       /* 白色文字 */
+          font-size: 14px;
+          font-weight: bold;
+          pointer-events: none;
+          z-index: 2;
+        }
+        .time-labels {
+          display: flex;
+          justify-content: space-between;
+          font-size: 14px;
+          color: var(--anzhiyu-secondtext);
+          margin-top: 8px;
+        }
+
       - let rawData = item.reward_list
       if rawData
         - let sortedByDate = rawData.slice().sort((a, b) => new Date(b.datatime) - new Date(a.datatime));
@@ -251,14 +313,14 @@ if site.data.about
                   #TA=_p('about.charge_for_ta')
               #tube-con
                 svg(viewBox='0 0 1028 385', fill='none', xmlns='http://www.w3.org/2000/svg')
-                  path(d='M1 77H234.226L307.006 24H790', stroke='#e5e9ef', stroke-width='20')
-                  path(d='M0 140H233.035L329.72 71H1028', stroke='#e5e9ef', stroke-width='20')
-                  path(d='M1 255H234.226L307.006 307H790', stroke='#e5e9ef', stroke-width='20')
-                  path(d='M0 305H233.035L329.72 375H1028', stroke='#e5e9ef', stroke-width='20')
-                  rect(y='186', width='236', height='24', fill='#e5e9ef')
-                  ellipse(cx='790', cy='25.5', rx='25', ry='25.5', fill='#e5e9ef')
+                  path(d='M1 77H234.226L307.006 24H790', stroke='#e5eef', stroke-width='20')
+                  path(d='M0 140H233.035L329.72 71H1028', stroke='#e5eef', stroke-width='20')
+                  path(d='M1 255H234.226L307.006 307H790', stroke='#e5eef', stroke-width='20')
+                  path(d='M0 305H233.035L329.72 375H1028', stroke='#e5eef', stroke-width='20')
+                  rect(y='186', width='236', height='24', fill='#e5eef')
+                  ellipse(cx='790', cy='25.5', rx='25', ry='25.5', fill='#e5eef')
                   circle(r='14', transform='matrix(1 0 0 -1 790 25)', fill='white')
-                  ellipse(cx='790', cy='307.5', rx='25', ry='25.5', fill='#e5e9ef')
+                  ellipse(cx='790', cy='307.5', rx='25', ry='25.5', fill='#e5eef')
                   circle(r='14', transform='matrix(1 0 0 -1 790 308)', fill='white')
                 #mask
                   svg(viewBox='0 0 1028 385', fill='none', xmlns='http://www.w3.org/2000/svg')
@@ -285,6 +347,34 @@ if site.data.about
                 - const totalPeopleText = _p('about.total_people', '<b>' + item.reward_list.length + '</b>')
                 p#people!= totalPeopleText
 
+    script.
+      // ✅ 十年之约进度函数
+      function updateTenYearProgress() {
+        let progressElement = document.querySelector(".progress");
+        let pastTimeElement = document.querySelector(".past-time");
+        let percentageLabelElement = document.querySelector(".percentage-label");
+        let startTimeElement = document.getElementById("tenyear-start-time");
+        let endTimeElement = document.getElementById("tenyear-end-time");
+
+        if (!startTimeElement || !endTimeElement) return;
+
+        let startTime = new Date(startTimeElement.textContent).getTime();
+        let endTime = new Date(endTimeElement.textContent).getTime();
+        const currentTime = new Date().getTime();
+        const progress = ((currentTime - startTime) / (endTime - startTime) * 100);
+        const progressPercentage = Math.min(progress, 100) + "%";
+
+        pastTimeElement.style.setProperty("--past-time-percentage", progress + "%");
+        progressElement.style.setProperty("--progress-percentage", progressPercentage);
+
+        // 显示百分比，白色文字在进度条内部
+        percentageLabelElement.textContent = `${progress.toFixed(0)}%`;
+        percentageLabelElement.style.visibility = "visible";
+      }
+
+      if (document.getElementById("tenyear")) {
+        updateTenYearProgress();
+      }
 
     script(src=url_for(theme.asset.countup_js))
     - const ck = theme.LA.ck
@@ -311,7 +401,6 @@ if site.data.about
 
         const i18nStats = !{JSON.stringify(i18nStats)};
 
-        // 统计数据渲染函数
         function renderStatistic(title, num) {
           if (!statisticEl) return;
           numValues = num;
@@ -333,9 +422,8 @@ if site.data.about
                 );
               });
           }
-            }
+        }
 
-        // 统计数字动画
         function statisticUP() {
             let statisticElement = document.querySelector(".about-statistic.author-content-item");
               if (!statisticElement) return;
@@ -353,12 +441,11 @@ if site.data.about
                 });
               };
 
-          const options = { root: null, rootMargin: "0px", threshold: 0 };
+              const options = { root: null, rootMargin: "0px", threshold: 0 };
               const observer = new IntersectionObserver(callback, options);
               observer.observe(statisticElement);
-            }
+        }
 
-        // 51la 统计
         if (#{laEnable}) {
           fetch("https://v6-widget.51.la/v6/#{ck}/quote.js")
             .then(res => res.text())
@@ -372,7 +459,6 @@ if site.data.about
                 return str;
               });
 
-              // 跳过第一个"最近活跃"
               num = num.slice(1);
               renderStatistic(title, num);
               statisticUP();
@@ -383,14 +469,13 @@ if site.data.about
             });
         }
 
-        // Umami 统计
         if (#{umamiEnable}) {
           const apiHost = "#{umamiApiHost}";
           const websiteId = "#{umamiWebsiteId}";
           const token = "#{umamiToken}";
           
           const now = Date.now();
-          const todayStart = new Date().setHours(0, 0, 0, 0);
+          const todayStart = new Date().setHours(0,0,0,0);
           const yesterdayStart = todayStart - 86400000;
           const monthStart = new Date(new Date().getFullYear(), new Date().getMonth(), 1).getTime();
 
@@ -402,97 +487,79 @@ if site.data.about
           };
 
           Promise.all([
-            fetchStats(todayStart, now),      // today
-            fetchStats(yesterdayStart, todayStart), // yesterday
-            fetchStats(monthStart, now),      // month
-            fetchStats(0, now)                // total
+            fetchStats(todayStart, now),
+            fetchStats(yesterdayStart, todayStart),
+            fetchStats(monthStart, now),
+            fetchStats(0, now)
           ])
-            .then(([today, yesterday, month, total]) => {
-              const title = [i18nStats.today_visitors, i18nStats.today_views, i18nStats.yesterday_visitors, i18nStats.yesterday_views, i18nStats.month_views, i18nStats.total_views];
-              const num = [
-                today.visitors?.value || today.uniques?.value || 0,
-                today.pageviews?.value || 0,
-                yesterday.visitors?.value || yesterday.uniques?.value || 0,
-                yesterday.pageviews?.value || 0,
-                month.pageviews?.value || 0,
-                total.pageviews?.value || 0
-              ];
-
-              renderStatistic(title, num);
-              statisticUP();
-            })
-            .catch(err => {
-              console.error("Umami stats fetch failed:", err);
-              if (statisticEl) statisticEl.innerHTML = "<div>" + i18nStats.fetch_failed + "</div>";
-            });
+          .then(([today, yesterday, month, total]) => {
+            const title = [i18nStats.today_visitors, i18nStats.today_views, i18nStats.yesterday_visitors, i18nStats.yesterday_views, i18nStats.month_views, i18nStats.total_views];
+            const num = [
+              today.visitors?.value || today.uniques?.value || 0,
+              today.pageviews?.value || 0,
+              yesterday.visitors?.value || yesterday.uniques?.value || 0,
+              yesterday.pageviews?.value || 0,
+              month.pageviews?.value || 0,
+              total.pageviews?.value || 0
+            ];
+            renderStatistic(title, num);
+            statisticUP();
+          })
+          .catch(err => {
+            console.error("Umami stats fetch failed:", err);
+            if (statisticEl) statisticEl.innerHTML = "<div>" + i18nStats.fetch_failed + "</div>";
+          });
         }
 
-        // 出生年份动画
-            const selfInfoContentYear = new CountUp("selfInfo-content-year", 0, #{selfInfoContentYear}, 0, 2, {
-              useEasing: true,
-              useGrouping: false,
-              separator: ",",
-              decimal: ".",
-              prefix: "",
-              suffix: "",
-            });
+        const selfInfoContentYear = new CountUp("selfInfo-content-year", 0, #{selfInfoContentYear}, 0, 2, {
+          useEasing: true,
+          useGrouping: false,
+          separator: ",",
+          decimal: ".",
+          prefix: "",
+          suffix: "",
+        });
 
-            let selfInfoContentYearElement = document.querySelector(".author-content-item.selfInfo.single");
-            function selfInfoContentYearUp() {
-              if (!selfInfoContentYearElement) return;
-
-              const callback = (entries, observer) => {
-                entries.forEach(entry => {
-                  if (entry.isIntersecting) {
-                    selfInfoContentYear.start();
+        let selfInfoContentYearElement = document.querySelector(".author-content-item.selfInfo.single");
+        function selfInfoContentYearUp() {
+          if (!selfInfoContentYearElement) return;
+          const callback = (entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                selfInfoContentYear.start();
                 observer.disconnect();
-                  }
-                });
-              };
-
+              }
+            });
+          };
           const options = { root: null, rootMargin: "0px", threshold: 0 };
-              const observer = new IntersectionObserver(callback, options);
-              observer.observe(selfInfoContentYearElement);
-            }
+          const observer = new IntersectionObserver(callback, options);
+          observer.observe(selfInfoContentYearElement);
+        }
+        selfInfoContentYearUp();
 
-            selfInfoContentYearUp();
-
-        var pursuitInterval = null;
-        pursuitInterval = setInterval(function () {
+        var pursuitInterval = setInterval(function () {
           const show = document.querySelector("span[data-show]");
           const next = show.nextElementSibling || document.querySelector(".first-tips");
           const up = document.querySelector("span[data-up]");
-
-          if (up) {
-            up.removeAttribute("data-up");
-          }
-
+          if (up) up.removeAttribute("data-up");
           show.removeAttribute("data-show");
           show.setAttribute("data-up", "");
-
           next.setAttribute("data-show", "");
         }, 2000);
 
         document.addEventListener("pjax:send", function () {
-          pursuitInterval && clearInterval(pursuitInterval);
+          clearInterval(pursuitInterval);
         });
 
         var helloAboutEl = document.querySelector(".hello-about");
         helloAboutEl.addEventListener("mousemove", evt => {
           const mouseX = evt.offsetX;
           const mouseY = evt.offsetY;
-          gsap.set(".cursor", {
-            x: mouseX,
-            y: mouseY,
-          });
-
-          gsap.to(".shape", {
-            x: mouseX,
-            y: mouseY,
-            stagger: -0.1,
-          });
+          gsap.set(".cursor", { x: mouseX, y: mouseY });
+          gsap.to(".shape", { x: mouseX, y: mouseY, stagger: -0.1 });
         });
       }
+
       if (typeof gsap === "object") {
         initAboutPage()
       } else {

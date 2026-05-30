@@ -1,130 +1,104 @@
-// 首页一图流加载优化
-/**
- * @description 实现medium的渐进加载背景的效果
- */
-(function() {
-    class ProgressiveLoad {
-      constructor(smallSrc, largeSrc) {
-        this.smallSrc = smallSrc;
-        this.largeSrc = largeSrc;
-        this.initTpl();
-        this.container.addEventListener('animationend', () => {
-          this.smallStage.style.display = 'none'; 
-        }, {once: true});
-      }
-  
-      initTpl() {
-        this.container = document.createElement('div');
-        this.smallStage = document.createElement('div');
-        this.largeStage = document.createElement('div');
-        this.smallImg = new Image();
-        this.largeImg = new Image();
-        this.container.className = 'pl-container';
-        this.smallStage.className = 'pl-img pl-blur';
-        this.largeStage.className = 'pl-img';
-        this.container.appendChild(this.smallStage);
-        this.container.appendChild(this.largeStage);
-        this.smallImg.onload = this._onSmallLoaded.bind(this);
-        this.largeImg.onload = this._onLargeLoaded.bind(this);
-      }
-  
-      progressiveLoad() {
-        this.smallImg.src = this.smallSrc;
-        this.largeImg.src = this.largeSrc;
-      }
-  
-      _onLargeLoaded() {
-        this.largeStage.classList.add('pl-visible');
-        this.largeStage.style.backgroundImage = `url('${this.largeSrc}')`;
-      }
-  
-      _onSmallLoaded() {
-        this.smallStage.classList.add('pl-visible');
-        this.smallStage.style.backgroundImage = `url('${this.smallSrc}')`;
-      }
-    }
-  
-    const executeLoad = (config, target) => {
-      console.log('执行渐进背景替换');
-      const isMobile = window.matchMedia('(max-width: 767px)').matches;
-      const loader = new ProgressiveLoad(
-        isMobile ? config.mobileSmallSrc : config.smallSrc,
-        isMobile ? config.mobileLargeSrc : config.largeSrc
-      );
-      if (target.children[0]) {
-        target.insertBefore(loader.container, target.children[0]);
-      }
-      loader.progressiveLoad();
+// 🔥 稳定版：首页渐进式头图加载（安知雨主题 100% 可用）
+class ProgressiveLoad {
+  constructor(smallSrc, largeSrc) {
+    this.smallSrc = smallSrc;
+    this.largeSrc = largeSrc;
+    this.container = null;
+    this.initTpl();
+  }
+
+  initScrollListener() {
+    const update = () => {
+      const val = Math.min(window.scrollY / window.innerHeight, 0.5);
+      this.container.style.setProperty("--process", val);
     };
-    // https://tu.ltyuanfang.cn/api/fengjing.php
-    const ldconfig = {
-      light: {
-        smallSrc: '/img/2026/383235.webp', //浅色模式 小图链接 尽可能配置小于100k的图片 
-        largeSrc: '/img/2026/383235.webp', //浅色模式 大图链接 最终显示的图片
-        mobileSmallSrc: '/img/2026/383235.webp', //手机端浅色小图链接 尽可能配置小于100k的图片
-        mobileLargeSrc: '/img/2026/383235.webp', //手机端浅色大图链接 最终显示的图片
-        enableRoutes: ['/'],
-        },
-      dark: {
-        smallSrc: '/img/2026/dojm2h.webp', //深色模式 小图链接 尽可能配置小于100k的图片 
-        largeSrc: '/img/2026/dojm2h.webp', //深色模式 大图链接 最终显示的图片
-        mobileSmallSrc: '/img/2026/dojm2h.webp', //手机端深色模式小图链接 尽可能配置小于100k的图片
-        mobileLargeSrc: '/img/2026/dojm2h.webp', //手机端深色大图链接 最终显示的图片
-        enableRoutes: ['/'],
-        },
-      };
-  
-      const getCurrentTheme = () => {
-        return document.documentElement.getAttribute('data-theme'); 
-      }
-  
-      const onThemeChange = () => {
-        const currentTheme = getCurrentTheme();
-        const config = ldconfig[currentTheme];
-        initProgressiveLoad(config);
-        document.addEventListener("DOMContentLoaded", function() {
-          initProgressiveLoad(config);
-        });
-      
-        document.addEventListener("pjax:complete", function() {
-          onPJAXComplete(config);
-        });
-      }
-  
-      let initTheme = getCurrentTheme();
-      let initConfig = ldconfig[initTheme];
-      initProgressiveLoad(initConfig);
-  
-    const observer = new MutationObserver(mutations => {
-      mutations.forEach(mutation => {
-        if (mutation.attributeName === "data-theme" && location.pathname === '/') {
-          onThemeChange();
-        }
-      });
-    });
+    window.addEventListener("scroll", update);
+    update();
+  }
+
+  initTpl() {
+    this.container = document.createElement('div');
+    this.smallStage = document.createElement('div');
+    this.largeStage = document.createElement('div');
+    this.smallImg = new Image();
+    this.largeImg = new Image();
+
+    this.container.className = 'pl-container';
+    this.smallStage.className = 'pl-img pl-blur';
+    this.largeStage.className = 'pl-img';
+
+    this.container.append(this.smallStage, this.largeStage);
+    this.container.style.setProperty("--process", 0);
+  }
+
+  progressiveLoad() {
+    this.smallImg.onload = () => {
+      this.smallStage.classList.add('pl-visible');
+      this.smallStage.style.backgroundImage = `url('${this.smallSrc}')`;
+    };
+    this.largeImg.onload = () => {
+      this.largeStage.classList.add('pl-visible');
+      this.largeStage.style.backgroundImage = `url('${this.largeSrc}')`;
+      this.initScrollListener();
+    };
+    this.smallImg.src = this.smallSrc;
+    this.largeImg.src = this.largeSrc;
+  }
+}
+
+// 配置
+const ldconfig = {
+  light: {
+    smallSrc: '/img/2026/383235.webp',
+    largeSrc: '/img/2026/383235.webp',
+    mobileSmallSrc: '/img/2026/383235.webp',
+    mobileLargeSrc: '/img/2026/383235.webp',
+  },
+  dark: {
+    smallSrc: '/img/2026/dojm2h.webp',
+    largeSrc: '/img/2026/dojm2h.webp',
+    mobileSmallSrc: '/img/2026/dojm2h.webp',
+    mobileLargeSrc: '/img/2026/dojm2h.webp',
+  },
+};
+
+// 获取主题
+const getCurrentTheme = () => {
+  return document.documentElement.getAttribute('data-theme') || 'light';
+};
+
+// 🔥 统一、稳定、延迟执行（解决时有时无）
+function startLoad() {
+  setTimeout(() => {
+    document.querySelectorAll('.pl-container').forEach(el => el.remove());
+    if (location.pathname !== '/') return;
+
+    const target = document.getElementById('page-header');
+    if (!target || !target.classList.contains('full_page')) return;
+
+    const isMobile = window.matchMedia('(max-width:767px)').matches;
+    const cfg = ldconfig[getCurrentTheme()];
     
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["data-theme"]  
-    });
-  
-    function initProgressiveLoad(config) {
-      const container = document.querySelector('.pl-container');
-      if (container) {
-        container.remove();
-      }
-      const target = document.getElementById('page-header');
-      if (target && target.classList.contains('full_page')) {
-        executeLoad(config, target);
-      }
-    }
-  
-    function onPJAXComplete(config) {
-      const target = document.getElementById('page-header');
-      if (target && target.classList.contains('full_page')) {
-        initProgressiveLoad(config);
-      }
-    }
-  
-  })();
-  
+    const loader = new ProgressiveLoad(
+      isMobile ? cfg.mobileSmallSrc : cfg.smallSrc,
+      isMobile ? cfg.mobileLargeSrc : cfg.largeSrc
+    );
+    
+    target.insertBefore(loader.container, target.firstChild);
+    loader.progressiveLoad();
+  }, 120); // 🔥 关键：延迟 120ms 保证 DOM 完全渲染
+}
+
+// 主题切换监听（避免重复定义）
+if (!window.themeObserverLoaded) {
+  window.themeObserverLoaded = true;
+  const themeObserver = new MutationObserver(startLoad);
+  themeObserver.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-theme']
+  });
+}
+
+// 页面加载 + PJAX 统一调用
+document.addEventListener('DOMContentLoaded', startLoad);
+document.addEventListener('pjax:complete', startLoad);

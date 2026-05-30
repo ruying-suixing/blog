@@ -1,15 +1,16 @@
 ---
 title: 题解：CF2139B Cake Collection
-date: 2026-03-23 21:33:21
 katex: true
 top_img: /img/2026/top_img1.webp
 cover: /img/2026/top_img1.webp
-tags:    
-    - 题解
-    - C++
+tags:
+  - 题解
+  - C++
 categories: 洛谷
 ai:
-    - 本文讲述了如何使用 C++ 完成洛谷的 CF2139B Cake Collection，思路清晰、排版精美
+  - 本文讲述了如何使用 C++ 完成洛谷的 CF2139B Cake Collection，思路清晰、排版精美
+abbrlink: 18290
+date: 2026-03-23 21:33:21
 ---
 
 # [CF2139B Cake Collection](https://www.luogu.com.cn/problem/CF2139B "CF2139B Cake Collection") 题解（全题解区最短代码）
@@ -32,7 +33,7 @@ ai:
     示例代码：
     
 
-```cpp
+    ```cpp
     sort(a+1,a+n+1,greater<int>());//对数组 a 从大到小进行排序
     ```
 

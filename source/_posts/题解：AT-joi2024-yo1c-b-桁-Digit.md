@@ -1,15 +1,16 @@
 ---
 title: 题解：AT_joi2024_yo1c_b 桁 (Digit)
-date: 2026-03-30 19:21:06
 katex: true
 top_img: /img/2026/top_img1.webp
 cover: /img/2026/top_img1.webp
-tags: 
-    - 题解
-    - C++
+tags:
+  - 题解
+  - C++
 categories: 洛谷
 ai:
-    - 本文讲述了如何使用 C++ 完成洛谷的 CF2139B Cake Collection，思路清晰、排版精美
+  - 本文讲述了如何使用 C++ 完成洛谷的 AT_joi2024_yo1c_b 桁 (Digit)，思路清晰、排版精美
+abbrlink: 54375
+date: 2026-03-30 19:21:06
 ---
 
 # AT_joi2024_yo1c_b 桁 (Digit)题解

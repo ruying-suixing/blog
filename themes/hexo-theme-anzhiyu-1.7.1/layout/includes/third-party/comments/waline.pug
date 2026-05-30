@@ -14,8 +14,16 @@ script.
         path: window.location.pathname,
         comment: !{lazyload ? false : count},
         imageUploader: !{imageUploader},
+        placeholder: "来都来了 ヾ(≧∇≦*)ゝ，说两句灌灌水💧\n本站支持匿名评论😎\n建议留下邮箱方便回复💖"
       }, !{JSON.stringify(option)}))
 
+      setTimeout(()=>{
+        const editDom = document.getElementById('wl-edit')
+        if(editDom){
+          editDom.placeholder = "来都来了 ヾ(≧∇≦*)ゝ，说两句灌灌水💧\n本站支持匿名评论😎\n建议留下邮箱方便回复💖"
+        }
+      }, 300)
+      
       const destroyWaline = () => {
         waline.destroy()
       }

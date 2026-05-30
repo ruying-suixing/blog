@@ -1,14 +1,16 @@
 ---
-title: 题解：P14730 [ICPC 2022 Seoul R] Palindrome Type
-date: 2026-03-30 21:35:32
+title: '题解：P14730 [ICPC 2022 Seoul R] Palindrome Type'
 katex: true
 top_img: /img/2026/top_img1.webp
 cover: /img/2026/top_img1.webp
-tags:    
-    - 题解
-    - C++
+tags:
+  - 题解
+  - C++
 categories: 洛谷
+abbrlink: 74562
+date: 2026-03-30 21:35:32
 ai:
+  - 本文讲述了如何使用 C++ 完成洛谷的 P14730 [ICPC 2022 Seoul R] Palindrome Type，思路清晰、排版精美
 ---
 
 # P14730 [ICPC 2022 Seoul R] Palindrome Type [题解](https://www.luogu.com.cn/article/twhfrn73 "纯享阅读区")

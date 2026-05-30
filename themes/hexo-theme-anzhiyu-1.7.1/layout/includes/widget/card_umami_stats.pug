@@ -1,0 +1,80 @@
+#umami-stats.card-widget.mt-3
+  .item-headline
+    i.fas.fa-chart-line
+    span 网站统计
+
+  a.p-2.block(href="https://stai.rusin.lol/share/YUbObP7G9m9lrSzr" target="_blank" rel="noopener noreferrer")
+    // 强制同一行布局
+    .stats-row
+      // 总浏览量
+      .text-center
+        span.text-sm.text-neutral-500 总浏览量 
+        span#busuanzi_value_page_pv.stat-number.text-2xl.font-bold(style="color: inherit;") -
+
+      // 访问数
+      .text-center
+        span.text-sm.text-neutral-500 访问数 
+        span#busuanzi_value_site_pv.stat-number.text-2xl.font-bold(style="color: inherit;") -
+
+      // 游客数
+      .text-center
+        span.text-sm.text-neutral-500 游客数 
+        span#busuanzi_value_site_uv.stat-number.text-2xl.font-bold(style="color: inherit;") -
+
+style.
+  /* 强制水平布局，覆盖其他样式 */
+  #umami-stats .stats-row {
+    display: flex !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    padding: 1rem 0 !important;
+  }
+
+  /* 浅色模式 */
+  #umami-stats .text-neutral-500 { color: #737373; }
+  #umami-stats .stat-number { color: #171717; }
+  
+  /* 深色模式 最高优先级强制白色 */
+  html.dark #umami-stats .text-neutral-500 { color: #a3a3a3 !important; }
+  html.dark #umami-stats .stat-number { color: #ffffff !important; }
+
+script(src="https://busuanzi.cc/js?async=1")
+script.
+  // 数字滚动动画
+  function animateNumber(el, target) {
+    const duration = 1800;
+    const start = 0;
+    const startTime = performance.now();
+
+    function run(t) {
+      const progress = Math.min(1, (t - startTime) / duration);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(start + (target - start) * ease);
+      el.textContent = formatNumber(current);
+      if (progress < 1) requestAnimationFrame(run);
+    }
+    requestAnimationFrame(run);
+  }
+
+  function formatNumber(num) {
+    if (num >= 1000000) return (num / 1000000).toFixed(1) + "M";
+    if (num >= 1000) return (num / 1000).toFixed(1) + "K";
+    return num.toString();
+  }
+
+  // 监听 busuanzi 加载完成
+  const observer = new MutationObserver(() => {
+    const pvEl = document.getElementById("busuanzi_value_page_pv");
+    const sitePvEl = document.getElementById("busuanzi_value_site_pv");
+    const siteUvEl = document.getElementById("busuanzi_value_site_uv");
+
+    if (pvEl && sitePvEl && siteUvEl && pvEl.textContent !== "-") {
+      animateNumber(pvEl, parseInt(pvEl.textContent));
+      animateNumber(sitePvEl, parseInt(sitePvEl.textContent));
+      animateNumber(siteUvEl, parseInt(siteUvEl.textContent));
+      observer.disconnect();
+    }
+  });
+
+  const container = document.getElementById("umami-stats");
+  if (container) observer.observe(container, { childList: true, subtree: true });
