@@ -39,7 +39,7 @@
     "hexo-tag-aplayer": "^3.0.4",
     "hexo-theme-landscape": "^1.0.0",
     "hexo-wordcount": "^6.0.1",
-    "undici": "^5.28.4"
+    "undici": "^8.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
