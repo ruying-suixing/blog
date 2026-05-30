@@ -1,0 +1,10 @@
+allowBuilds:
+  core-js: false
+  es5-ext: false
+  fecs: false
+  gifsicle: false
+  hexo-util: false
+  mozjpeg: false
+  optipng-bin: false
+  pre-commit: false
+  spawn-sync: false
