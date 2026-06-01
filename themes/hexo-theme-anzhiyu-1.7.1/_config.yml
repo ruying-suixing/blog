@@ -60,6 +60,9 @@ nav:
         - name: 封面生成器
           link: https://cover.rusin.lol/
           icon: https://cover.rusin.lol/favicon.svg
+        - name: 友链后端
+          link: https://fc.rusin.lol/
+          icon: https://fc.rusin.lol/favicon.ico
 
 # mourn （哀悼日，指定日期网站简单变灰，不包括滚动条）
 # 注意： 仅网站首页变灰，其他页面正常显示

@@ -134,7 +134,7 @@ hexo_safego:
   # 安全设置
   security:
     url_param_name: 'u'         # URL 参数名
-    html_file_name: 'go.html'   # 重定向页面的文件名
+    html_file_name: 'go'   # 重定向页面的文件名
     ignore_attrs:               # 忽略处理的 HTML 属性
       - 'data-fancybox'
   # 容器与页面设置
@@ -148,11 +148,11 @@ hexo_safego:
   whitelist:
     domain_whitelist:           # 允许的白名单域名
        - "life.rusin.lol"
-       - "rusin.lol"
+       - "www.rusin.lol"
   # 页面外观设置
   appearance:
     avatar: /favicon.ico    # 头像路径
-    title: "如形の小站"            # 页面标题
+    title: "如形の博客"            # 页面标题
     subtitle: "安全中心"         # 页面副标题
     darkmode: true              # 是否启用深色模式
     countdowntime: 5           # 倒计时秒数
