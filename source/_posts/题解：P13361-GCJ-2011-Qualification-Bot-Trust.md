@@ -57,11 +57,11 @@ char c;
 
 // 初始化函数：重置机器人初始状态
 void init(){
-	poso=1;  // 初始位置均为1
-	posb=1;
-	timeo=0;  // 初始时间为0
-	timeb=0;
-	s=0;  // 总时间初始为0
+    poso=1;  // 初始位置均为1
+    posb=1;
+    timeo=0;  // 初始时间为0
+    timeb=0;
+    s=0;  // 总时间初始为0
 }
 
 int main(){
@@ -74,15 +74,15 @@ int main(){
         init();  // 初始化状态
         for(int i=0;i<n;++i){
             //核心：顺序按下每个按钮
-        	c=a[i].robot;  // 当前命令的机器人
-        	p=a[i].pos;    // 当前命令的目标位置
+            c=a[i].robot;  // 当前命令的机器人
+            p=a[i].pos;    // 当前命令的目标位置
             if(c=='O'){  // Orange机器人操作
-            	// 计算完成时间：到达时间与总时间取最大后+1秒按键
-            	ntime=max(timeo+abs(p-poso),s)+1;
+                // 计算完成时间：到达时间与总时间取最大后+1秒按键
+                ntime=max(timeo+abs(p-poso),s)+1;
                 poso=p;  // 更新位置
                 timeo=s=ntime;  // 更新时间
             }else{  // Blue机器人操作
-            	ntime=max(timeb+abs(p-posb),s)+1;
+                ntime=max(timeb+abs(p-posb),s)+1;
                 posb=p;  //同上
                 timeb=s=ntime;
             }

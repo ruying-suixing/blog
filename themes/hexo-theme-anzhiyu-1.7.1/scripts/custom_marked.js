@@ -1,18 +1,70 @@
 hexo.extend.filter.register('marked:extensions', function (extensions) {
-  // 折叠块 :::warning[标题]
+
+  // ==========================================
+  // 1. 对齐块 :::align{center}
+  // ==========================================
+  extensions.push({
+    name: 'alignBlock',
+    level: 'block',
+    start: (src) => src.match(/^:::align/)?.index,
+    tokenizer: (src) => {
+      const rule = /^:::align\{(\w+)\}\s*?\n([\s\S]*?)\s*?:::(?=\n|$)/;
+      const match = src.match(rule);
+      if (match) {
+        return {
+          type: 'alignBlock',
+          raw: match[0],
+          dir: match[1].trim(),
+          content: match[2].trim(),
+        };
+      }
+    },
+    renderer: (token) => {
+      return `<div class="align-${token.dir}">${hexo.render.renderSync({ text: token.content, engine: 'markdown' })}</div>`;
+    },
+  });
+
+  // ==========================================
+  // 2. 引言块 :::epigraph[作者]
+  // ==========================================
+  extensions.push({
+    name: 'epigraph',
+    level: 'block',
+    start: (src) => src.match(/^:::epigraph/)?.index,
+    tokenizer: (src) => {
+      const rule = /^:::epigraph(?:\[([^\]]*)\])?\s*?\n([\s\S]*?)\s*?:::(?=\n|$)/;
+      const match = src.match(rule);
+      if (match) {
+        return {
+          type: 'epigraph',
+          raw: match[0],
+          author: match[1] || '',
+          content: match[2].trim(),
+        };
+      }
+    },
+    renderer: (token) => {
+      const author = token.author ? `<p class="epigraph-author">${token.author}</p>` : '';
+      return `<div class="epigraph">${hexo.render.renderSync({ text: token.content, engine: 'markdown' })}${author}</div>`;
+    },
+  });
+
+  // ==========================================
+  // 3. 折叠块 :::warning[标题]
+  // ==========================================
   extensions.push({
     name: 'foldable',
     level: 'block',
     start: (src) => src.match(/^:::/)?.index,
     tokenizer: (src) => {
-      const rule = /^:::(\w+)\[([^\]]*)\](?:\{([^}]*)\})?\n([\s\S]*?)\n:::/;
+      const rule = /^:::(\w+)\[([^\]]*)\](?:\{([^}]*)\})?\s*?\n([\s\S]*?)\s*?:::(?=\n|$)/;
       const match = src.match(rule);
       if (!match) return;
 
       const type = match[1];
       const title = match[2];
       const opt = match[3] || '';
-      const content = match[4];
+      const content = match[4].trim();
       const allowed = ['info', 'warning', 'success', 'error', 'bug', 'flask'];
 
       if (allowed.includes(type)) {
@@ -33,51 +85,6 @@ hexo.extend.filter.register('marked:extensions', function (extensions) {
   <summary>${token.title || '详情'}</summary>
   <div>${hexo.render.renderSync({ text: token.content, engine: 'markdown' })}</div>
 </details>`;
-    },
-  });
-
-  // align 块
-  extensions.push({
-    name: 'alignBlock',
-    level: 'block',
-    start: (src) => src.match(/^:::align/)?.index,
-    tokenizer: (src) => {
-      const rule = /^:::align\{(\w+)\}\n([\s\S]*?)\n:::/;
-      const match = src.match(rule);
-      if (match) {
-        return {
-          type: 'alignBlock',
-          raw: match[0],
-          dir: match[1],
-          content: match[2],
-        };
-      }
-    },
-    renderer: (token) => {
-      return `<div class="align-${token.dir}">${hexo.render.renderSync({ text: token.content, engine: 'markdown' })}</div>`;
-    },
-  });
-
-  // epigraph 引言
-  extensions.push({
-    name: 'epigraph',
-    level: 'block',
-    start: (src) => src.match(/^:::epigraph/)?.index,
-    tokenizer: (src) => {
-      const rule = /^:::epigraph(?:\[([^\]]*)\])?\n([\s\S]*?)\n:::/;
-      const match = src.match(rule);
-      if (match) {
-        return {
-          type: 'epigraph',
-          raw: match[0],
-          author: match[1] || '',
-          content: match[2],
-        };
-      }
-    },
-    renderer: (token) => {
-      const author = token.author ? `<p>${token.author}</p>` : '';
-      return `<div class="epigraph">${hexo.render.renderSync({ text: token.content, engine: 'markdown' })}${author}</div>`;
     },
   });
 
