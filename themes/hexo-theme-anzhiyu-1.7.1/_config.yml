@@ -16,7 +16,6 @@ menu:
   #   追番页: /bangumis/ || anzhiyu-icon-bilibili
       相册集: /album/ || anzhiyu-icon-images
       小空调: /air-conditioner/ || anzhiyu-icon-fan
-      待办清单: /todolist/ || fa-solid fa-list-check
 
   关于:
       新闻: /news/ || anzhiyu-icon-file-word
@@ -100,7 +99,7 @@ social:
 author_status:
   enable: true
   # 可以是任何图片，建议放表情包或者emoji图片，效果都很好，[表情包速查](https://emotion.xiaokang.me/)
-  statusImg: "https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png"
+  statusImg: "https://image.rusin.lol/file/mA6GQZId.png"
   skills:
     - 🤖️ 数码科技爱好者
     - 🔍 分享与热心帮助
@@ -200,7 +199,7 @@ error_img:
 error_404:
   enable: true
   subtitle: "请尝试站内搜索寻找文章"
-  background: https://lib.bsgun.cn/Hexo-static/img/PLK.gif #https://bu.dusays.com/2023/05/08/645907596997d.gif
+  background: https://image.rusin.lol/file/XR4GVNHk.gif # https://bu.dusays.com/2023/05/08/645907596997d.gif
 
 post_meta:
   page: # Home Page
@@ -219,7 +218,7 @@ post_meta:
 
 # 主色调相关配置
 mainTone:
-  enable: false # true or false 文章是否启用获取图片主色调
+  enable: true # true or false 文章是否启用获取图片主色调
   mode: api # colorthief/cdn/api/both colorthief模式为前端获取图片主色调，cdn模式为图片url+imageAve参数获取主色调，api模式为请求API获取主色调，both模式会先请求cdn参数，无法获取的情况下将请求API获取，可以在文章内配置main_color: '#3e5658'，使用十六进制颜色，则不会请求colorthief/cdn/api/both获取主色调，而是直接使用配置的颜色
   # 项目地址：https://github.com/anzhiyu-c/img2color-go
   api: https://img2color-go.vercel.app/api?img= # mode为api时可填写
@@ -259,7 +258,7 @@ toc:
 post_copyright:
   enable: true
   decode: false
-  author_href: https://rusin.lol
+  author_href: https://www.rusin.lol
   location: 浙江·宁波
   license: ©️ BY-NC-SA 4.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
@@ -273,7 +272,7 @@ reward:
   enable: true
   QR_code:
     - img: https://cdn.luogu.com.cn/upload/image_hosting/beyjrxi9.png
-      link:
+      link: https://weixin.qq.com
       text: 微信
     - img: https://image.rusin.lol/file/tAgzHmZq.jpg
       link:
@@ -282,7 +281,7 @@ reward:
 # Post edit
 # Easily browse and edit blog source code online.
 post_edit: # 目前仅可选择一个平台在线编辑
-  enable: false
+  enable: true
   # github: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/
   # For example: https://github.com/jerryc127/butterfly.js.org/edit/main/source/
   github: true
@@ -317,7 +316,7 @@ noticeOutdate:
   limit_day: 180 # When will it be shown
   position: top # position: top/bottom
   message_prev: 距离上次更新已经有
-  message_next: 天了，内容可能已经过时了哦~
+  message_next: 天了，内容可能已经过时了，请谨慎辨别
 
 # Share System (分享功能)
 # --------------------------------------
@@ -420,7 +419,7 @@ giscus:
 
 # Chat Button [recommend]
 # It will create a button in the bottom right corner of website, and hide the origin button
-chat_btn: false
+chat_btn: true
 
 # The origin chat button is displayed when scrolling up, and the button is hidden when scrolling down
 chat_hide_show: false
@@ -488,7 +487,7 @@ footer:
     centerImg: /favicon.ico
     left:
       - title: email
-        link: mailto:haoxuanzhang2014@.com
+        link: mailto:i@rusin.lol
         icon: anzhiyu-icon-envelope
       # - title: 微博
       #   link: https://weibo.com/u/6378063631
@@ -529,7 +528,7 @@ footer:
           - title: 文档
             link: https://docs.rusin.lol
           - title: 源码
-            link: https://github.com/ruying-suixing/hexo-blog
+            link: https://github.com/ruying-suixing/blog
           - title: 更新日志
             link: https://docs.rusin.lol/update/
       - title: 导航
@@ -844,10 +843,10 @@ aside:
              <span>❓ 如有问题欢迎评论区交流！</span><br>
              <span>😫 页面异常？尝试<kbd>Ctrl</kbd>+<kbd>F5</kbd></span><br>
              <span>📧 如需联系我：<a href="mailto:haoxuanzhang2014@outlook.com"><b>发送邮件🚀</b></a></span>
-             <div id="welcome-info"></div> # 必须项
+             <div id="welcome-info"></div>
   card_weixin:
     enable: false
-    face: https://bu.dusays.com/2023/01/13/63c02edf44033.png
+    face: https://image.rusin.lol/file/oNbGfefn.png
     backFace: https://bu.dusays.com/2023/05/13/645fa415e8694.png
   card_recent_post:
     enable: true
@@ -973,7 +972,7 @@ rightside_item_order:
 
 # medium-zoom
 # https://github.com/francoischalifour/medium-zoom
-medium_zoom: true
+medium_zoom: false
 
 # fancybox
 # http://fancyapps.com/fancybox/3/
@@ -1007,7 +1006,7 @@ note:
 
 icons:
   ali_iconfont_js: # 阿里图标symbol 引用链接，主题会进行加载 symbol 引用
-  fontawesome: true #是否启用fontawesome6图标
+  fontawesome: true # 是否启用fontawesome6图标
   fontawesome_animation_css: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@1.0.17/lib/assets/font-awesome-animation.min.css #fontawesome_animation 如果有就会加载，示例值：https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@1.0.17/lib/assets/font-awesome-animation.min.css
 
 # other
@@ -1081,22 +1080,22 @@ css_prefix: true
 home_top:
   enable: true # 开关
   timemode: date #date/updated
-  title: 生活明朗
-  subTitle: 万物可爱。
-  siteText: anheyu.com
+  title: 亲身体验
+  subTitle: 终生实践。
+  siteText: rusin.lol
   category:
-    - name: 前端
-      path: /categories/前端开发/
+    - name: 洛谷
+      path: /categories/洛谷/
       shadow: var(--anzhiyu-shadow-blue)
       class: blue
       icon: anzhiyu-icon-dove
-    - name: 大学
-      path: /categories/大学生涯/
+    - name: 网站开发
+      path: /categories/网站开发/
       shadow: var(--anzhiyu-shadow-red)
       class: red
       icon: anzhiyu-icon-fire
-    - name: 生活
-      path: /categories/生活日常/
+    - name: 信息学奥赛
+      path: /categories/信息学奥赛/
       shadow: var(--anzhiyu-shadow-green)
       class: green
       icon: anzhiyu-icon-book
@@ -1108,16 +1107,16 @@ home_top:
   banner:
     tips: 个人博客
     title: 新博客上线
-    image: https://bu.dusays.com/2023/05/13/645fa3cf90d70.webp
+    image: https://cdn.luogu.com.cn/upload/image_hosting/cfgy9siw.png
     link: /#
 
 # 朋友圈配置
 friends_vue:
-  enable: false
+  enable: true
   vue_js: https://npm.elemecdn.com/anzhiyu-theme-static@1.1.1/friends/index.4f887d95.js
-  apiurl: # 朋友圈后端地址
+  apiurl: https://fc.rusin.lol # 朋友圈后端地址
   top_tips: 使用 友链朋友圈 订阅友链最新文章
-  top_background:
+  top_background: https://cdn.luogu.com.cn/upload/image_hosting/cfgy9siw.png
 
 # 深色模式粒子效果canvas
 universe:
@@ -1133,7 +1132,7 @@ console:
 
 # 51a统计配置
 LA:
-  enable: true
+  enable: false
   ck: Jp8wwGQpp21utaFQ
   LingQueMonitorID: Jp8ztDRrxmTf7LDj
 
@@ -1226,7 +1225,7 @@ greetingBox:
 # 文章顶部ai摘要
 post_head_ai_description:
   enable: true
-  gptName: AnZhiYu
+  gptName: rusin
   mode: local # 默认模式 可选值: tianli/local
   switchBtn: false # 可以配置是否显示切换按钮 以切换tianli/local
   btnLink: https://afdian.net/item/886a79d4db6711eda42a52540025c377
@@ -1283,6 +1282,7 @@ inject:
     # 自定义css
     # - <link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'">
     - <link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'">
+    - <link rel="stylesheet" href="https://cdn.jsdmirror.cn/gh/zym2013/amazing-luogu-international@main/style/markdown.css">
     - <link rel="stylesheet" href="/css/essay-style.css">
     - <link rel="stylesheet" href="/css/font.css" media="defer" onload="this.media='all'">
     - <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"> # loading用的fontawesome图标
@@ -1300,14 +1300,6 @@ inject:
     - <script src="/js/countdown.js"></script>
     - <script src="/js/imgloaded.js"></script>
     - <script async data-pjax src="/js/fps.js"></script>
-denglong:
-  enable: true  # true 开启 false关闭
-
-duilian: 
-  enable: false  # true 开启 false关闭
-  center_panel: 金蛇献瑞
-  left_panel: 天增岁月人增寿
-  right_panel: 春满乾坤福满楼
 # CDN
 # Don't modify the following settings unless you know how they work
 # 非必要请不要修改

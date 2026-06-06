@@ -3,26 +3,6 @@
   .loading-bg
     img.loading-img(alt="加载头像" class='nolazyload' src=url_for(loading_img))
     .loading-image-dot
-      if theme.duilian.enable
-        div.duilian
-          .left-panel
-            .couplet-container
-              .couplet-decor.top
-              .couplet
-                p=theme.duilian.left_panel
-              .couplet-decor.bottom
-          .center-panel
-            .horizontal-scroll
-              .couplet-decor.left
-              .couplet
-                p=theme.duilian.center_panel
-              .couplet-decor.right
-          .right-panel
-            .couplet-container
-              .couplet-decor.top
-              .couplet
-                p=theme.duilian.right_panel
-              .couplet-decor.bottom
 script.
   const preloader = {
     endLoading: () => {

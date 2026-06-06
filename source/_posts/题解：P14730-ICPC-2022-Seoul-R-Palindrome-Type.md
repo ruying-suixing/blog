@@ -13,10 +13,6 @@ ai:
   - 本文讲述了如何使用 C++ 完成洛谷的 P14730 [ICPC 2022 Seoul R] Palindrome Type，思路清晰、排版精美
 ---
 
-# P14730 [ICPC 2022 Seoul R] Palindrome Type [题解](https://www.luogu.com.cn/article/twhfrn73 "纯享阅读区")
-
----
-
 [**纯享阅读区**](https://www.luogu.com.cn/article/twhfrn73 "纯享阅读区")  
 [题目传送门](https://www.luogu.com.cn/problem/P14730 "P14730 [ICPC 2022 Seoul R] Palindrome Type")
 
