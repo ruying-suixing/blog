@@ -18,7 +18,7 @@
       address: 未知 ❌
       from: 匿名 ❌
       image:
-        - https://dev.bsgun.cn/i/2024/08/05/167562.webp
+        - https://image.rusin.lol/file/kJkR7Smb.webp
 - class_name: SVG 设计
   path_name: /album/svgDesign
   type: 2
@@ -43,3 +43,25 @@
       image:
         - https://lib.bsgun.cn/Hexo-static/img/PLK.gif
       address: 浙江宁波
+- class_name: SVG 设计
+  path_name: /album/svgDesign
+  type: 2
+  description: 这里存放的是我设计的一些 SVG 图标。
+  top_link: /album
+  top_btn_text: 返回
+  top_background: /img/2026/dojm2h.webp
+  rowHeight: 220
+  limit: 10
+  lazyload: true
+  btnLazyload: true
+  url: false
+  cover: /img/2026/dojm2h.webp
+  album_list:
+    - date: 2026-6-4
+      content: 夏夜图片
+      image:
+        - https://image.rusin.lol/file/IuqQcrKN.jpg
+    - date: 2026-6-4
+      content: 首页高清头图
+      image:
+        - /img/2026/dojm2h.webp

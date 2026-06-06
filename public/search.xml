@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/article/23436/</url>
-    <content><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post$ hexo new &quot;My New Post&quot;
-
-More info: Writing
-Run server$ hexo server
-
-More info: Server
-Generate static files$ hexo generate
-
-More info: Generating
-Deploy to remote sites$ hexo deploy
-
-More info: Deployment
-]]></content>
-  </entry>
-  <entry>
     <title>Vercel 仅部署指定分支的方法</title>
     <url>/article/2431487467/</url>
     <content><![CDATA[如何指定特殊分支
@@ -55,6 +37,24 @@ More info: Deployment
       <tags>
         <tag>Git</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/article/23436/</url>
+    <content><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post$ hexo new &quot;My New Post&quot;
+
+More info: Writing
+Run server$ hexo server
+
+More info: Server
+Generate static files$ hexo generate
+
+More info: Generating
+Deploy to remote sites$ hexo deploy
+
+More info: Deployment
+]]></content>
   </entry>
   <entry>
     <title>侧边栏添加个性定位欢迎信息</title>
@@ -98,29 +98,6 @@ Q: 距离显示不准确?A: 正常现象，计算有无法避免的误差，在 
       <tags>
         <tag>Hexo</tag>
         <tag>安知鱼美化</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>图论之欧拉回路、差分约束——算法笔记</title>
-    <url>/article/2472048401/</url>
-    <content><![CDATA[图论之欧拉回路、差分约束——算法笔记比赛
-欧拉回路无向代码1：
-void dfs(int x)&#123;	while(f[x]&lt;to[x].size())&#123;		int y=to[x][f[x]].first,idx=to[x][f[x]].second;		f[x]++;		if(!vis[idx])&#123;			vis[idx]=vis[idx^1]=1;			dfs(y);			c[++l]=y;		&#125;	&#125;&#125;
-无向代码2：
-int x=0,y=0,z=0;for(int i=1;i&lt;=n;++i)&#123;	if(d[i]&amp;1)x=i,++y;&#125;if(y&amp;&amp;y!=2)&#123;	cout&lt;&lt;&quot;Impossible&quot;&lt;&lt;endl;&#125;
-有向题目：
-#include&lt;bits/stdc++.h&gt;using namespace std;int n,m,d[100005],c[100005],f[100005]/*表示遍历到第几个点*/;vector&lt;int&gt;a[100005];stack&lt;int&gt;st;void dfs(int x)&#123;	int l=0;	while(f[x]&lt;a[x].size())&#123;		int y=a[x][f[x]];		f[x]++;		dfs(y);		c[++l]=y;	&#125;	st.push(x);&#125;int main()&#123;	cin&gt;&gt;n&gt;&gt;m;	int ind[100005],outd[100005],u,v;	for(int i=1;i&lt;=m;++i)&#123;		cin&gt;&gt;u&gt;&gt;v;		a[u].push_back(v);		ind[v]++,outd[u]++;	&#125;	for(int i=1;i&lt;=n;++i)sort(a[i].begin(),a[i].end());	int x=1,y=0,z=0;	for(int i=1;i&lt;=n;++i)&#123;		if(ind[i]+1==outd[i])x=i,++y;		if(ind[i]!=outd[i])++z;	&#125;	if(!((y==1&amp;&amp;z==2)||!z))&#123;		cout&lt;&lt;&quot;No&quot;&lt;&lt;endl;		return 0;	&#125;	dfs(x);	while(!st.empty())&#123;		cout&lt;&lt;st.top()&lt;&lt;&quot; &quot;;		st.pop();	&#125;	return 0;&#125;
-差分约束Bellman_Ford：
-void Bellman_Ford(int n)&#123;	auto relax=[&amp;]()&#123;		bool f=0;		for(int i=1;i&lt;=n;++i)&#123;			for(auto k:to[i])&#123;				if(ans[i]&gt;ans[k.first]+k.second)&#123;					ans[i]=min(ans[i],ans[k.first]+k.second),f=1;				&#125;			&#125;		&#125;		return f;	&#125;;	for(int i=0;i&lt;n-1;++i)relax();	if(relax())cout&lt;&lt;&quot;NO&quot;;	else for(int i=1;i&lt;=n;++i)cout&lt;&lt;ans[i]&lt;&lt;&quot; &quot;;&#125;
-完整题目：
-#include&lt;bits/stdc++.h&gt;using namespace std;int ans[5005];vector&lt;pair&lt;int,int&gt;&gt;to[5005];void Bellman_Ford(int n)&#123;	auto relax=[&amp;]()&#123;		bool f=0;		for(int i=1;i&lt;=n;++i)&#123;			for(auto k:to[i])&#123;				if(ans[i]&gt;ans[k.first]+k.second)&#123;					ans[i]=min(ans[i],ans[k.first]+k.second),f=1;				&#125;			&#125;		&#125;		return f;	&#125;;	for(int i=0;i&lt;n-1;++i)relax();	if(relax())cout&lt;&lt;&quot;NO&quot;;	else for(int i=1;i&lt;=n;++i)cout&lt;&lt;ans[i]&lt;&lt;&quot; &quot;;&#125;int n,m,c1,c2,y;int main() &#123;	cin&gt;&gt;n&gt;&gt;m;	fill(ans,ans+n+1,0);	for(int i=1;i&lt;=m;++i)&#123;		cin&gt;&gt;c1&gt;&gt;c2&gt;&gt;y;		to[c1].push_back(&#123;c2,y&#125;);	&#125;	Bellman_Ford(n);    return 0;&#125;
-]]></content>
-      <categories>
-        <category>信息学奥赛</category>
-      </categories>
-      <tags>
-        <tag>题解</tag>
-        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -216,84 +193,26 @@ Update: 本文章已更新至最新。
       </tags>
   </entry>
   <entry>
-    <title>实获论坛招人了！</title>
-    <url>/article/465873/</url>
-    <content><![CDATA[实获学员请继续阅读，非实获学员可忽略本条消息。
-实获论坛招募成员最新文章链接（若 404 请访问 https://www.luogu.me/article/sjn3u3py）：https://blog.rusin.qzz.io/article/465873
-实获论坛链接：https://zjsh.freeflarum.com
-由于实获暂无官方论坛，我搭建了专属论坛，仅对实获用户开放使用。
-
-预览首页：博客编写：
-
-发表帖子：
-
-想要加入论坛，请按照以下步骤操作：
-私信点此 并向我发送以下信息：
-我是实获的&lt;替换为你的实获大号用户名&gt;用户，我申请加入实获论坛，我保证不会发表色情、敏感、涉政、暴力内容，我已严肃阅读相关文档。
-
-例如：
-我是实获的wyqjy用户，我申请加入实获论坛，我保证不会发表色情、敏感、涉政、暴力内容，我已严肃阅读相关文档。
-
-验证使用实获大号（即刚刚私信内容中的账号）在 SH 3020 提交以下代码（语言保持默认，即 C 语言）：
- C 语言代码 
-              
-              #include&lt;stdio.h&gt;int main()&#123;    return -1;&#125;
-              
-            
-
-审核我将在 $3$ 天内完成审核，审核通过会私信你，请确保私信接收设置为所有人（拉黑的用户除外）并及时接收。
-若超过 $3$ 天未收到回复，可以在本帖子下 @ 我。
-注册前往论坛，点击注册。
-
-用户名：填写你实获大号用户名。
-邮箱：
-有个人邮箱（QQ、Outlook 等）请填写本人邮箱，可获得更多权限。
-无个人邮箱可填写：&lt;替换为你的实获大号用户名&gt;@zjshoj.com，例如 wyqjy@zhshoj.com，会限制部分权限，但仍可正常发帖。
-
-
-密码：建议使用实获大号密码，可获得更多权限。
-确认密码：重复输入相同密码。
-
-成功恭喜你！现在可以自由发布帖子了。快去点击首页右上角发布主题，发布你的第一条帖子吧！
- 联系我 
-              
-              最终解释权归如影随形所有。如有疑问，可通过以下任一方式联系我：：点此发送到我的邮箱 i@m.rusin.cn.mt（推荐）在本文章下评论并 @ 我点此私信（不推荐）
-              
-            
-]]></content>
-  </entry>
-  <entry>
-    <title>对单一仓库配置小号以远程管理小号仓库</title>
-    <url>/article/372975/</url>
-    <content><![CDATA[命令行操作
-给这个仓库单独设置小号（仅本地生效）
-  git config --local user.name &quot;ru-sin&quot;git config --local user.email &quot;i@rusin.cnt&quot;
-
-把远程地址绑定到小号仓库
-  git remote set-url origin https://ru-sin@github.com/ru-sin/gugo.git
-
-推送（第一次会让你登录小号）
-  git push -f origin main
-
-登录时怎么填？弹出窗口时：使用 SSH 登录
-在输入框中填入在 这里 创建的 SSH 密钥（权限建议仅 Repo）。
-
-
-最终效果（最舒服的状态）
-全局 Git &#x3D; 大号
-其他所有仓库 &#x3D; 大号
-只有特定文件夹 &#x3D; 小号
-
-
-永远不用再切换账号
-
+    <title>图论之欧拉回路、差分约束——算法笔记</title>
+    <url>/article/2472048401/</url>
+    <content><![CDATA[图论之欧拉回路、差分约束——算法笔记比赛
+欧拉回路无向代码1：
+void dfs(int x)&#123;	while(f[x]&lt;to[x].size())&#123;		int y=to[x][f[x]].first,idx=to[x][f[x]].second;		f[x]++;		if(!vis[idx])&#123;			vis[idx]=vis[idx^1]=1;			dfs(y);			c[++l]=y;		&#125;	&#125;&#125;
+无向代码2：
+int x=0,y=0,z=0;for(int i=1;i&lt;=n;++i)&#123;	if(d[i]&amp;1)x=i,++y;&#125;if(y&amp;&amp;y!=2)&#123;	cout&lt;&lt;&quot;Impossible&quot;&lt;&lt;endl;&#125;
+有向题目：
+#include&lt;bits/stdc++.h&gt;using namespace std;int n,m,d[100005],c[100005],f[100005]/*表示遍历到第几个点*/;vector&lt;int&gt;a[100005];stack&lt;int&gt;st;void dfs(int x)&#123;	int l=0;	while(f[x]&lt;a[x].size())&#123;		int y=a[x][f[x]];		f[x]++;		dfs(y);		c[++l]=y;	&#125;	st.push(x);&#125;int main()&#123;	cin&gt;&gt;n&gt;&gt;m;	int ind[100005],outd[100005],u,v;	for(int i=1;i&lt;=m;++i)&#123;		cin&gt;&gt;u&gt;&gt;v;		a[u].push_back(v);		ind[v]++,outd[u]++;	&#125;	for(int i=1;i&lt;=n;++i)sort(a[i].begin(),a[i].end());	int x=1,y=0,z=0;	for(int i=1;i&lt;=n;++i)&#123;		if(ind[i]+1==outd[i])x=i,++y;		if(ind[i]!=outd[i])++z;	&#125;	if(!((y==1&amp;&amp;z==2)||!z))&#123;		cout&lt;&lt;&quot;No&quot;&lt;&lt;endl;		return 0;	&#125;	dfs(x);	while(!st.empty())&#123;		cout&lt;&lt;st.top()&lt;&lt;&quot; &quot;;		st.pop();	&#125;	return 0;&#125;
+差分约束Bellman_Ford：
+void Bellman_Ford(int n)&#123;	auto relax=[&amp;]()&#123;		bool f=0;		for(int i=1;i&lt;=n;++i)&#123;			for(auto k:to[i])&#123;				if(ans[i]&gt;ans[k.first]+k.second)&#123;					ans[i]=min(ans[i],ans[k.first]+k.second),f=1;				&#125;			&#125;		&#125;		return f;	&#125;;	for(int i=0;i&lt;n-1;++i)relax();	if(relax())cout&lt;&lt;&quot;NO&quot;;	else for(int i=1;i&lt;=n;++i)cout&lt;&lt;ans[i]&lt;&lt;&quot; &quot;;&#125;
+完整题目：
+#include&lt;bits/stdc++.h&gt;using namespace std;int ans[5005];vector&lt;pair&lt;int,int&gt;&gt;to[5005];void Bellman_Ford(int n)&#123;	auto relax=[&amp;]()&#123;		bool f=0;		for(int i=1;i&lt;=n;++i)&#123;			for(auto k:to[i])&#123;				if(ans[i]&gt;ans[k.first]+k.second)&#123;					ans[i]=min(ans[i],ans[k.first]+k.second),f=1;				&#125;			&#125;		&#125;		return f;	&#125;;	for(int i=0;i&lt;n-1;++i)relax();	if(relax())cout&lt;&lt;&quot;NO&quot;;	else for(int i=1;i&lt;=n;++i)cout&lt;&lt;ans[i]&lt;&lt;&quot; &quot;;&#125;int n,m,c1,c2,y;int main() &#123;	cin&gt;&gt;n&gt;&gt;m;	fill(ans,ans+n+1,0);	for(int i=1;i&lt;=m;++i)&#123;		cin&gt;&gt;c1&gt;&gt;c2&gt;&gt;y;		to[c1].push_back(&#123;c2,y&#125;);	&#125;	Bellman_Ford(n);    return 0;&#125;
 ]]></content>
       <categories>
-        <category>网站开发</category>
+        <category>信息学奥赛</category>
       </categories>
       <tags>
-        <tag>Git</tag>
-        <tag>VS code</tag>
+        <tag>题解</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -407,6 +326,53 @@ npm run buildnpm run deploy
       </tags>
   </entry>
   <entry>
+    <title>实获论坛招人了！</title>
+    <url>/article/465873/</url>
+    <content><![CDATA[实获学员请继续阅读，非实获学员可忽略本条消息。
+实获论坛招募成员最新文章链接（若 404 请访问 https://www.luogu.me/article/sjn3u3py）：https://blog.rusin.qzz.io/article/465873
+实获论坛链接：https://zjsh.freeflarum.com
+由于实获暂无官方论坛，我搭建了专属论坛，仅对实获用户开放使用。
+
+预览首页：博客编写：
+
+发表帖子：
+
+想要加入论坛，请按照以下步骤操作：
+私信点此 并向我发送以下信息：
+我是实获的&lt;替换为你的实获大号用户名&gt;用户，我申请加入实获论坛，我保证不会发表色情、敏感、涉政、暴力内容，我已严肃阅读相关文档。
+
+例如：
+我是实获的wyqjy用户，我申请加入实获论坛，我保证不会发表色情、敏感、涉政、暴力内容，我已严肃阅读相关文档。
+
+验证使用实获大号（即刚刚私信内容中的账号）在 SH 3020 提交以下代码（语言保持默认，即 C 语言）：
+ C 语言代码 
+              
+              #include&lt;stdio.h&gt;int main()&#123;    return -1;&#125;
+              
+            
+
+审核我将在 $3$ 天内完成审核，审核通过会私信你，请确保私信接收设置为所有人（拉黑的用户除外）并及时接收。
+若超过 $3$ 天未收到回复，可以在本帖子下 @ 我。
+注册前往论坛，点击注册。
+
+用户名：填写你实获大号用户名。
+邮箱：
+有个人邮箱（QQ、Outlook 等）请填写本人邮箱，可获得更多权限。
+无个人邮箱可填写：&lt;替换为你的实获大号用户名&gt;@zjshoj.com，例如 wyqjy@zhshoj.com，会限制部分权限，但仍可正常发帖。
+
+
+密码：建议使用实获大号密码，可获得更多权限。
+确认密码：重复输入相同密码。
+
+成功恭喜你！现在可以自由发布帖子了。快去点击首页右上角发布主题，发布你的第一条帖子吧！
+ 联系我 
+              
+              最终解释权归如影随形所有。如有疑问，可通过以下任一方式联系我：：点此发送到我的邮箱 i@m.rusin.cn.mt（推荐）在本文章下评论并 @ 我点此私信（不推荐）
+              
+            
+]]></content>
+  </entry>
+  <entry>
     <title>我常常追忆过去</title>
     <url>/article/38845/</url>
     <content><![CDATA[追忆我常常追忆过去。
@@ -424,24 +390,37 @@ npm run buildnpm run deploy
       </tags>
   </entry>
   <entry>
-    <title>题解：AT_joi2024_yo1c_b 桁 (Digit)</title>
-    <url>/article/54375/</url>
-    <content><![CDATA[AT_joi2024_yo1c_b 桁 (Digit)题解题目传送门
-题目大意给出 $a, b$，求 $a+b$ 的位数。
-思路引导提问如何统计 $a+b$ 的位数？
+    <title>对单一仓库配置小号以远程管理小号仓库</title>
+    <url>/article/372975/</url>
+    <content><![CDATA[命令行操作
+给这个仓库单独设置小号（仅本地生效）
+  git config --local user.name &quot;ru-sin&quot;git config --local user.email &quot;i@rusin.cnt&quot;
+
+把远程地址绑定到小号仓库
+  git remote set-url origin https://ru-sin@github.com/ru-sin/gugo.git
+
+推送（第一次会让你登录小号）
+  git push -f origin main
+
+登录时怎么填？弹出窗口时：使用 SSH 登录
+在输入框中填入在 这里 创建的 SSH 密钥（权限建议仅 Repo）。
 
 
-成功我们将 $a+b$ 转化为字符串函数大法好，输出 $a+b$ 的长度即可。
+最终效果（最舒服的状态）
+全局 Git &#x3D; 大号
+其他所有仓库 &#x3D; 大号
+只有特定文件夹 &#x3D; 小号
 
 
-核心代码#include&lt;bits/stdc++.h&gt;using namespace std; int a, b; int main() &#123;	cin&gt;&gt;a&gt;&gt;b;	cout&lt;&lt;to_string(a+b).size();//需使用洛谷IDE中C++14 (GCC 9)及以上版本，蓝C++会CE	return 0;&#125;
+永远不用再切换账号
+
 ]]></content>
       <categories>
-        <category>洛谷</category>
+        <category>网站开发</category>
       </categories>
       <tags>
-        <tag>题解</tag>
-        <tag>C++</tag>
+        <tag>Git</tag>
+        <tag>VS code</tag>
       </tags>
   </entry>
   <entry>
@@ -526,6 +505,27 @@ typedef long long ll;ll dp[2][40400][3]; ll num[505050];struct MoveResult &#123;
       </tags>
   </entry>
   <entry>
+    <title>题解：AT_joi2024_yo1c_b 桁 (Digit)</title>
+    <url>/article/54375/</url>
+    <content><![CDATA[AT_joi2024_yo1c_b 桁 (Digit)题解题目传送门
+题目大意给出 $a, b$，求 $a+b$ 的位数。
+思路引导提问如何统计 $a+b$ 的位数？
+
+
+成功我们将 $a+b$ 转化为字符串函数大法好，输出 $a+b$ 的长度即可。
+
+
+核心代码#include&lt;bits/stdc++.h&gt;using namespace std; int a, b; int main() &#123;	cin&gt;&gt;a&gt;&gt;b;	cout&lt;&lt;to_string(a+b).size();//需使用洛谷IDE中C++14 (GCC 9)及以上版本，蓝C++会CE	return 0;&#125;
+]]></content>
+      <categories>
+        <category>洛谷</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>题解：CF2139B Cake Collection</title>
     <url>/article/18290/</url>
     <content><![CDATA[CF2139B Cake Collection 题解（全题解区最短代码）安利一下博客 🥳🎆🎉祝大家 2026 新年快乐！
@@ -545,6 +545,36 @@ typedef long long ll;ll dp[2][40400][3]; ll num[505050];struct MoveResult &#123;
 警告：不开 long long 见祖宗，不用 1LL 乘见祖宗。  
 
 完整代码#include&lt;bits/stdc++.h&gt;using namespace std;long long t,n,m,a[200005],s;int main()&#123;	cin&gt;&gt;t;	while(t--)&#123;		s=0;		cin&gt;&gt;n&gt;&gt;m;		for(int i=1;i&lt;=n;i++)cin&gt;&gt;a[i];		sort(a+1,a+n+1,greater&lt;int&gt;());		for(int i=1;i&lt;=min(n,m);i++)s+=1LL*(m-i+1)*a[i];		cout&lt;&lt;s&lt;&lt;endl;	&#125;	return 0;&#125;
+]]></content>
+      <categories>
+        <category>洛谷</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>题解：P14702 [ICPC 2024 Tehran R] Boat</title>
+    <url>/article/29704/</url>
+    <content><![CDATA[P14702 [ICPC 2024 Tehran R] Boat 题解题目传送门
+贪心，细节较多。
+思路分析先特判无解情况。
+提示
+
+如果某个重量大于最大载重量 $w$，输出 −1，结束。
+如果最轻的两个人重量之和超过了 $w$，即无人可以当船夫，输出 −1，结束。
+
+
+
+否则一定有解，尽量让两人配对上船，为了用最少次数，先 sort 从小到大排序，再让最轻的人作为船夫，分为两种情况：
+
+如果 $a_i+a_1 \leq w$，可以和最轻的人一起上船，可载两人。这样运送要 $2$ 次，$ans \leftarrow ans+2$。
+否则，不可以和最轻的人一起上船，只载一人。这样运送要 $4$ 次，$ans \leftarrow ans+4$。
+
+最后船夫不回来，所以输出 $ans-1$。
+代码按思路写即可，注意细节，这里不放了。
+结语感谢您的阅读！
 ]]></content>
       <categories>
         <category>洛谷</category>
@@ -635,36 +665,6 @@ st.size() 返回元素数量。
 
 
 核心代码cin&gt;&gt;s;for(char c:s)&#123;	if(c==&#x27;(&#x27;)&#123;		if(st.size())&#123;			st.pop();			st.push(false);		&#125;//替换操作		st.push(true);	&#125;else&#123;		if(st.top())&#123;			ans+=st.size()-1;		&#125;//累加栈内元素数量		st.pop();//弹出栈顶	&#125;&#125;cout&lt;&lt;ans;return 0;
-]]></content>
-      <categories>
-        <category>洛谷</category>
-      </categories>
-      <tags>
-        <tag>题解</tag>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>题解：P14702 [ICPC 2024 Tehran R] Boat</title>
-    <url>/article/29704/</url>
-    <content><![CDATA[P14702 [ICPC 2024 Tehran R] Boat 题解题目传送门
-贪心，细节较多。
-思路分析先特判无解情况。
-提示
-
-如果某个重量大于最大载重量 $w$，输出 −1，结束。
-如果最轻的两个人重量之和超过了 $w$，即无人可以当船夫，输出 −1，结束。
-
-
-
-否则一定有解，尽量让两人配对上船，为了用最少次数，先 sort 从小到大排序，再让最轻的人作为船夫，分为两种情况：
-
-如果 $a_i+a_1 \leq w$，可以和最轻的人一起上船，可载两人。这样运送要 $2$ 次，$ans \leftarrow ans+2$。
-否则，不可以和最轻的人一起上船，只载一人。这样运送要 $4$ 次，$ans \leftarrow ans+4$。
-
-最后船夫不回来，所以输出 $ans-1$。
-代码按思路写即可，注意细节，这里不放了。
-结语感谢您的阅读！
 ]]></content>
       <categories>
         <category>洛谷</category>
