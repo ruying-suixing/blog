@@ -21,8 +21,8 @@ importers:
         specifier: ^2.2.1
         version: 2.2.1
       hexo-blog-encrypt:
-        specifier: ^3.1.9
-        version: 3.1.9
+        specifier: ^4.0.2
+        version: 4.0.2(hexo@7.3.0(chokidar@3.6.0))
       hexo-browsersync:
         specifier: ^0.3.0
         version: 0.3.0
@@ -1027,6 +1027,9 @@ packages:
 
   brace-expansion@1.1.12:
     resolution: {integrity: sha512-9T9UjW3r0UW5c1Q7GTwllptXwhvYmEzFhzMfZ9H7FQWt+uZePjZPjBP/W1ZEyZ1twGWom5/56TF4lPcqjnDHcg==}
+
+  brace-expansion@1.1.15:
+    resolution: {integrity: sha512-EwOCDEex4quD37XhqM3omwtMoJjr//isUZz1JopUNWms+4Z2ViyM/k1YIRePpoVNnQhENnxtFjLaxNHrT7xIUg==}
 
   brace-expansion@2.0.2:
     resolution: {integrity: sha512-Jt0vHyM+jmUBqojB7E1NIYadt0vI0Qxjxd2TErW94wDz+E2LAm5vKMXXwg6ZZBTHPuUlDgQHKXvjGBdfcF1ZDQ==}
@@ -2909,8 +2912,11 @@ packages:
   hexo-abbrlink@2.2.1:
     resolution: {integrity: sha512-yvazN7bbrIb7p8QU3nJ/8fbDmir1mFroYvUYcJz5xpc6DtszKggschmqZg6WNUdjhDBFyDwksrIUfwQnw0OOuA==}
 
-  hexo-blog-encrypt@3.1.9:
-    resolution: {integrity: sha512-dzuZiW5mD8t1FOhJXqc+IgV1Tc45YtatJb/w8k4PyT9McQxsROQXsBw+zbDembzuqMnbnkCeT2SapZ/r9AgAcw==}
+  hexo-blog-encrypt@4.0.2:
+    resolution: {integrity: sha512-61A6wl0NWWVPs2NTtjM1f9EojOnGadyPxCGUJs9m9Qvz5F/Jtw6lpnaUR3GCdY/yYHSDuGxPakvKZP2XVXBv2g==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      hexo: '>=5'
 
   hexo-browsersync@0.3.0:
     resolution: {integrity: sha512-5grkDUG/jci1LgImUFHTGMhXRYFKYuBVVf1L62UAhd/IC/L3EfGtKXyPVqvxyVb4Pc5STY5tQR46xoBJLlWJNw==}
@@ -7734,6 +7740,11 @@ snapshots:
       balanced-match: 1.0.2
       concat-map: 0.0.1
 
+  brace-expansion@1.1.15:
+    dependencies:
+      balanced-match: 1.0.2
+      concat-map: 0.0.1
+
   brace-expansion@2.0.2:
     dependencies:
       balanced-match: 1.0.2
@@ -10371,7 +10382,9 @@ snapshots:
       hexo-front-matter: 1.0.0
       hexo-fs: 3.1.0
 
-  hexo-blog-encrypt@3.1.9: {}
+  hexo-blog-encrypt@4.0.2(hexo@7.3.0(chokidar@3.6.0)):
+    dependencies:
+      hexo: 7.3.0(chokidar@3.6.0)
 
   hexo-browsersync@0.3.0:
     dependencies:
@@ -11807,7 +11820,7 @@ snapshots:
 
   minimatch@3.0.8:
     dependencies:
-      brace-expansion: 1.1.12
+      brace-expansion: 1.1.15
 
   minimatch@3.1.5:
     dependencies:
