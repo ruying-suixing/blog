@@ -3,11 +3,9 @@ title: AC 自动机笔记
 abbrlink: 3182685
 date: 2026-06-06 19:22:35
 tags:
-  - 题解
+  - 笔记
   - C++
-categories: 
-  - 洛谷
-  - 信息学奥赛
+categories: 信息学奥赛
 ---
 
 ![](https://cdn.luogu.com.cn/upload/image_hosting/ycm2f9av.png)
