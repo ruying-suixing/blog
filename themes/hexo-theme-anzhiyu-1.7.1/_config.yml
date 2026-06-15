@@ -1299,6 +1299,11 @@ inject:
     - <script src="/js/countdown.js"></script>
     - <script src="/js/imgloaded.js"></script>
     - <script async data-pjax src="/js/fps.js"></script>
+    - <script
+        defer
+        src="https://han-analytics-e5a.pages.dev/tracker.min.js"
+        data-website-id="如形の博客"
+      ></script>
 # CDN
 # Don't modify the following settings unless you know how they work
 # 非必要请不要修改
