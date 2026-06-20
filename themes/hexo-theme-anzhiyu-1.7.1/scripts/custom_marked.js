@@ -9,7 +9,7 @@ function renderCustomBlock(blockType, title, opt, body) {
   const content = renderMarkdown(body.trim());
 
   if (type === 'align') {
-    const dir = title ? title.trim() : 'left';
+    const dir = opt ? opt.trim() : 'left';
     return `\n<div class="align-${dir}">\n${content}\n</div>\n`;
   }
 

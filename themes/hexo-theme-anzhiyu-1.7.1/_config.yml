@@ -1285,7 +1285,7 @@ inject:
     - <link rel="stylesheet" href="/css/custom_marked.css">
     - <link rel="stylesheet" href="/css/essay-style.css">
     - <link rel="stylesheet" href="/css/font.css" media="defer" onload="this.media='all'">
-    - <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"> # loading用的fontawesome图标
+    - <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"> # loading 用的 fontawesome 图标
     - <link rel="stylesheet" href="/css/post-ui.css">
     - <link rel="stylesheet" href="https://unpkg.com/@5ime/likeme@latest/static/css/likeme.css" /> # 点赞组件样式
 
