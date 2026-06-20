@@ -10,10 +10,6 @@ date: 2026-06-07 18:31:24
 
 ## 前言
 
-:::info[Tip：]{open}
-可以**在[博客](https://blog.rusin.lol/article/3935900)观看以获得更好的阅读体验**哦！
-:::
-
 OIer 都知道，洛谷中有个 [Markdown 插件](https://www.luogu.com.cn/article/70w8j2pj "插件 README")，非常好用，效果如下：
 
 :::info[这是一个提示]
@@ -114,15 +110,15 @@ OIer 都知道，洛谷中有个 [Markdown 插件](https://www.luogu.com.cn/arti
 知其然，知其所以然
 :::
 
-引入 [Css](/css/custom_marked.css)，让可以通过 Html 的 `<div>` 或 `class=""` 使用插件，然后用 js 自定义 Hexo markdown 解析，用正则匹配把 `:::` 等进行匹配，转换为 html，最后由 Css 完成样式。
+用 Javasript 自定义 Hexo 的 markdown 解析，用正则匹配把标识等进行匹配，转换为 Html，最后由 Css 完成样式。
 
 ## 实现
 
 :::warning{open}
-本教程以 anzhiyu 主题为例，其他主题亦可，视情况更改文件目录，参见你的博客主题的文档。
+本教程以 anzhiyu 主题为例，其他主题亦可，视情况更改 Css 文件目录和引用方式，~~参见你的博客主题的文档~~*以后可能会更新*下这篇文章，搞个多主题支持。
 :::
 
-首先，在博客中新建 Css （`~/themes/···（主题名称）/source/css/custom_marked.css`）粘贴以下代码并引入（Anzhiyu 主题可以在 config.yml 中的 Inject.head 配置项中引入，其他主题~~自行研究~~*以后可能会更新*下这篇文章，搞个多主题支持）。
+首先，在博客中新建 Css （`~/themes/···（主题名称）/source/css/custom_marked.css`）粘贴以下代码并引入（Anzhiyu 主题可以在 config.yml 中的 Inject.head 配置项中引入）。
 
 ```css
 .align-left {
