@@ -8,7 +8,7 @@ menu:
   友链:
       友人帐: /link/ || anzhiyu-icon-link
       闲言碎语: /essay/ || fa-solid fa-message
-  #   朋友圈: /fcircle/ || anzhiyu-icon-artstation
+      朋友圈: /fcircle/ || anzhiyu-icon-artstation
   #   留言板: /comments/ || anzhiyu-icon-envelope
 
   我的:
@@ -25,7 +25,7 @@ menu:
 # nav相关配置
 nav:
   enable: true
-  travelling: false
+  travelling: true
   clock: false
   menu:
     - title: 如形の
