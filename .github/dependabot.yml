@@ -5,3 +5,7 @@ updates:
   schedule:
     interval: daily
   open-pull-requests-limit: 20
+  commit-message:
+      prefix: "deps"
+      include: "scope"
+      suffix: "[skip netlify]"
