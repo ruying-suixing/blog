@@ -28,7 +28,7 @@ git checkout -b main
 先把本地和远程仓库建立连接，<kbd>Ctrl+Shift+`</kbd>调出 VS code 终端直接执行：
 
 ```bash
-git remote add origin git@github.com:你的用户名/仓库名.git
+git remote add origin https://github.com/你的用户名/仓库名.git
 ```
 
 **验证绑定成功**：

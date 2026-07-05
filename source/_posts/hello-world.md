@@ -3,6 +3,25 @@ title: Hello World
 bilibili_bg: true
 abbrlink: 23436
 ---
+
+```
+<style>
+.big-font {
+    font-size: 50px;  /* 字体大小保持原样 */
+    font-weight: bold;
+}
+</style>
+
+<body>
+    <!-- 倒计时容器 -->
+    <div id="countdown" class="big-font"></div>
+
+    <script data-pjax defer src='/js/clock.js'></script>
+    <div class="pjax-reload"></div> 
+</body>
+```
+
+
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
 ## Quick Start

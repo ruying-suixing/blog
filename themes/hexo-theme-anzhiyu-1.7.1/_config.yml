@@ -31,37 +31,37 @@ nav:
     - title: 如形の
       item:
         - name: 主页
-          link: https://rusin.lol/
-          icon: https://rusin.lol/favicon.ico
+          link: https://rusin7.com/
+          icon: https://rusin7.com/favicon.ico
         - name: 生活
-          link: https://life.rusin.lol/
-          icon: https://life.rusin.lol/favicon.ico
+          link: https://life.rusin7.com/
+          icon: https://life.rusin7.com/favicon.ico
         - name: 文档
-          link: https://docs.rusin.lol/
-          icon: https://docs.rusin.lol/favicon.ico
+          link: https://docs.rusin7.com/
+          icon: https://docs.rusin7.com/favicon.ico
         - name: 论坛
-          link: https://forum.rusin.lol/
-          icon: https://forum.rusin.lol/favicon.ico
+          link: https://forum.rusin7.com/
+          icon: https://forum.rusin7.com/favicon.ico
         - name: 工具
-          link: https://tool.rusin.lol/
-          icon: https://tool.rusin.lol/favicon.ico
+          link: https://tool.rusin7.com/
+          icon: https://tool.rusin7.com/favicon.ico
         - name: 监测
-          link: https://statu.rusin.lol/
-          icon: https://statu.rusin.lol/favicon.ico
+          link: https://statu.rusin7.com/
+          icon: https://statu.rusin7.com/favicon.ico
     - title: 如形の项目
       item:
         - name: 追击者
-          link: https://life.rusin.lol/pages/click/
-          icon: https://life.rusin.lol/favicon.ico
+          link: https://pro.rusin7.com/pages/click/
+          icon: https://pro.rusin7.com/favicon.ico
         - name: 制作图标
-          link: https://icon.rusin.lol/
-          icon: https://icon.rusin.lol/assets/favicon-DJ_DbOJO.ico
+          link: https://icon.rusin7.com/
+          icon: https://icon.rusin7.com/assets/favicon-DJ_DbOJO.ico
         - name: 封面生成器
-          link: https://cover.rusin.lol/
-          icon: https://cover.rusin.lol/favicon.svg
+          link: https://cover.rusin7.com/
+          icon: https://cover.rusin7.com/favicon.svg
         - name: 友链后端
-          link: https://fc.rusin.lol/
-          icon: https://fc.rusin.lol/favicon.ico
+          link: https://fc.rusin7.com/
+          icon: https://fc.rusin7.com/favicon.ico
 
 # mourn （哀悼日，指定日期网站简单变灰，不包括滚动条）
 # 注意： 仅网站首页变灰，其他页面正常显示
@@ -99,7 +99,7 @@ social:
 author_status:
   enable: true
   # 可以是任何图片，建议放表情包或者emoji图片，效果都很好，[表情包速查](https://emotion.xiaokang.me/)
-  statusImg: "https://image.rusin.lol/file/mA6GQZId.png"
+  statusImg: "https://image.rusin7.com/file/mA6GQZId.png"
   skills:
     - 🤖️ 数码科技爱好者
     - 🔍 分享与热心帮助
@@ -199,7 +199,7 @@ error_img:
 error_404:
   enable: true
   subtitle: "请尝试站内搜索寻找文章"
-  background: https://image.rusin.lol/file/XR4GVNHk.gif # https://bu.dusays.com/2023/05/08/645907596997d.gif
+  background: https://image.rusin7.com/file/XR4GVNHk.gif # https://bu.dusays.com/2023/05/08/645907596997d.gif
 
 post_meta:
   page: # Home Page
@@ -258,7 +258,7 @@ toc:
 post_copyright:
   enable: true
   decode: false
-  author_href: https://www.rusin.lol
+  author_href: https://www.rusin7.com
   location: 浙江·宁波
   license: ©️ BY-NC-SA 4.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
@@ -274,7 +274,7 @@ reward:
     - img: https://cdn.luogu.com.cn/upload/image_hosting/beyjrxi9.png
       link: https://weixin.qq.com
       text: 微信
-    - img: https://image.rusin.lol/file/tAgzHmZq.jpg
+    - img: https://image.rusin7.com/file/tAgzHmZq.jpg
       link:
       text: 支付宝
 
@@ -374,7 +374,7 @@ valine:
 # waline - A simple comment system with backend support fork from Valine
 # https://waline.js.org/
 waline:
-  serverURL: https://comment.rusin.lol # Waline server address url
+  serverURL: https://comment.rusin7.com # Waline server address url
   bg: https://lib.bsgun.cn/Hexo-static/img/PLK.gif # Waline background
   pageview: true
   meta_css: true # 是否引入 waline-meta.css ,以便显示 meta图标
@@ -487,7 +487,7 @@ footer:
     centerImg: /favicon.ico
     left:
       - title: email
-        link: mailto:i@rusin.lol
+        link: mailto:i@rusin7.com
         icon: anzhiyu-icon-envelope
       # - title: 微博
       #   link: https://weibo.com/u/6378063631
@@ -526,11 +526,11 @@ footer:
       - title: 主题
         links:
           - title: 文档
-            link: https://docs.rusin.lol
+            link: https://docs.rusin7.com
           - title: 源码
             link: https://github.com/ruying-suixing/blog
           - title: 更新日志
-            link: https://docs.rusin.lol/update/
+            link: https://docs.rusin7.com/update/
       - title: 导航
         links:
           - title: 即刻短文
@@ -556,7 +556,7 @@ footer:
     linkList:
       - link: https://github.com/anzhiyu-c/hexo-theme-anzhiyu
         text: 主题
-      - link: https://image.rusin.lol
+      - link: https://image.rusin7.com
         text: 图床
       # - link: https://beian.miit.gov.cn/
       #   text: 湘ICP备-xxxxxxx号
@@ -846,7 +846,7 @@ aside:
              <div id="welcome-info"></div>
   card_weixin:
     enable: false
-    face: https://image.rusin.lol/file/oNbGfefn.png
+    face: https://image.rusin7.com/file/oNbGfefn.png
     backFace: https://bu.dusays.com/2023/05/13/645fa415e8694.png
   card_recent_post:
     enable: true
@@ -1082,7 +1082,7 @@ home_top:
   timemode: date #date/updated
   title: 亲身体验
   subTitle: 终生实践。
-  siteText: rusin.lol
+  siteText: rusin7.com
   category:
     - name: 洛谷
       path: /categories/洛谷/
@@ -1114,7 +1114,7 @@ home_top:
 friends_vue:
   enable: true
   vue_js: https://npm.elemecdn.com/anzhiyu-theme-static@1.1.1/friends/index.4f887d95.js
-  apiurl: https://fc.rusin.lol # 朋友圈后端地址
+  apiurl: https://fc.rusin7.com # 朋友圈后端地址
   top_tips: 使用 友链朋友圈 订阅友链最新文章
   top_background: https://cdn.luogu.com.cn/upload/image_hosting/cfgy9siw.png
 
@@ -1293,7 +1293,7 @@ inject:
     # 自定义js
     # - <script src="/js/xxx"></script>
     - <script src="https://unpkg.com/@5ime/likeme@latest/static/js/likeme.js"></script> # 点赞组件js
-    - <script defer src="https://stai.rusin.lol/script.js" data-website-id="2fd17833-ed47-49a3-a5d9-fc9784fadcd2"></script> # 访问统计
+    - <script defer src="https://stai.rusin7.com/script.js" data-website-id="2fd17833-ed47-49a3-a5d9-fc9784fadcd2"></script> # 访问统计
     - <script src="/js/footer-animal.js" defer></script>
     - <script src="/js/welcome.js"></script>
     - <script src="/js/countdown.js"></script>
@@ -1304,6 +1304,7 @@ inject:
         src="https://han-analytics-e5a.pages.dev/tracker.min.js"
         data-website-id="如形の博客"
       ></script>
+    # - <script src="/js/clock.js"></script> # 点赞组件js
 # CDN
 # Don't modify the following settings unless you know how they work
 # 非必要请不要修改

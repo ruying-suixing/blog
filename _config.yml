@@ -13,7 +13,7 @@ timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://blog.rusin.lol
+url: https://blog.rusin7.com
 permalink: article/:abbrlink/
 abbrlink:
   alg: crc32 #support crc16(default) and crc32
@@ -106,7 +106,7 @@ theme: hexo-theme-anzhiyu-1.7.1
 deploy:
   type: 'git'
   repo: git@github.com:ruying-suixing/blog.git
-  branch: main
+  branch: dist
 
 # Local search
 search:
@@ -147,8 +147,8 @@ hexo_safego:
   # 域名白名单
   whitelist:
     domain_whitelist:           # 允许的白名单域名
-      - "life.rusin.lol"
-      - "www.rusin.lol"
+      - "life.rusin7.com"
+      - "www.rusin7.com"
   # 页面外观设置
   appearance:
     avatar: /favicon.ico    # 头像路径
@@ -178,7 +178,7 @@ hexo_submit_urls_to_search_engine:
   txt_path: submit_urls.txt ## 文本文档名， 需要推送的链接会保存在此文本文档里
   baidu_host: https://dejavu.moe ## 在百度站长平台中注册的域名
   baidu_token: xxxxxxxxxxx  ## 请注意这是您的秘钥， 所以请不要把它直接发布在公众仓库里!
-  bing_host: https://blog.rusin.lol ## 在bing站长平台中注册的域名
+  bing_host: https://blog.rusin7.com ## 在bing站长平台中注册的域名
   bing_token: a902e47193c045378959ee28712b5c93  ## 请注意这是您的秘钥， 所以请不要把它直接发布在公众仓库里!
   google_host: https://dejavu.moe ## 在google站长平台中注册的域名
   google_proxy: http://127.0.0.1:7890 # 向谷歌提交网址所使用的系统 http 代理，填 0 不使用，以Clash为例
