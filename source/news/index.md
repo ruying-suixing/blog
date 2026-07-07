@@ -2,7 +2,7 @@
 title: news
 date: 2026-04-06 19:57:14
 type: news
-top_img: background-image:url(/img/top_cover/news.svg); background-size:100%
+top_img: background-image:url(https://image.rusin7.com/file/hexo/cover/aZOz6raS.svg); background-size:100%
 aside: true
 ---
 ## 每日早报 1

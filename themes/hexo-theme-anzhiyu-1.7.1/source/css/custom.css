@@ -1,7 +1,7 @@
 /* ============Waline 评论系统的自定义样式 ============*/
 /* 1. 评论输入框：背景图精准控制 */
 #wl-edit {
-  background: url('https://lib.bsgun.cn/Hexo-static/img/PLK.gif') no-repeat right bottom !important;
+  background: url('https://image.rusin7.com/file/Mjo1bViM.gif') no-repeat right bottom !important;
   background-size: 25% auto !important;
   padding: 20px !important;
 }
@@ -117,7 +117,7 @@ body[data-type=anzhiyu] #site-info {
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  background: url(/img/2026/383235.webp) center/cover no-repeat;
+  background: url(https://image.rusin7.com/file/7S4CbGOX.webp) center/cover no-repeat;
 }
 
 .pl-visible { opacity: 1 !important; }
@@ -129,9 +129,9 @@ body[data-type=anzhiyu] #site-info {
 }
 
 /* 头图透明 */
-/*#page-header {
+#page-header {
     background: transparent !important;
-} */
+}
 /* 底部透明 */
 /* #footer-bar{
     background: transparent !important;

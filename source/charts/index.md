@@ -3,7 +3,7 @@ title: 统计
 type: "charts"
 comments: false
 aside: true
-top_img: background-image:url(/img/top_cover/charts.svg); background-size:100%
+top_img: background-image:url(https://image.rusin7.com/file/hexo/cover/unRbfwTd.svg); background-size:100%
 ---
 
 {% tip bell, sync %}如果初次访问这个统计界面，请**按** <kbd>F5</kbd> **刷新**以{% emp 加载数据 %}。{% endtip %}

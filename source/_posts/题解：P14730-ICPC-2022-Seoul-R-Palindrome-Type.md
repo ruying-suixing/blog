@@ -1,8 +1,8 @@
 ---
 title: '题解：P14730 [ICPC 2022 Seoul R] Palindrome Type'
 katex: true
-top_img: /img/2026/top_img1.webp
-cover: /img/2026/top_img1.webp
+top_img: https://image.rusin7.com/file/hexo/cover/kuKbfhkc.webp
+cover: https://image.rusin7.com/file/hexo/cover/kuKbfhkc.webp
 tags:
   - 题解
   - C++

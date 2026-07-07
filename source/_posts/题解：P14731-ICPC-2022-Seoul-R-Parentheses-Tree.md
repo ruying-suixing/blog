@@ -3,8 +3,8 @@ title: '题解：P14731 [ICPC 2022 Seoul R] Parentheses Tree'
 abbrlink: 26278
 date: 2026-04-03 20:36:32
 katex: true
-top_img: /img/2026/top_img1.webp
-cover: /img/2026/top_img1.webp
+top_img: https://image.rusin7.com/file/hexo/cover/kuKbfhkc.webp
+cover: https://image.rusin7.com/file/hexo/cover/kuKbfhkc.webp
 tags:
   - 题解
   - C++
@@ -20,6 +20,7 @@ ai:
 [题目传送门](https://www.luogu.com.cn/problem/P14731 "P14731 [ICPC 2022 Seoul R] Parentheses Tree")
 
 ## 前置知识
+
 STL 中的 stack 容器提供了一众成员函数以供调用，其中较为常用的有：
 
 - 定义

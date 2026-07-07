@@ -8,11 +8,11 @@ tags:
 categories: 信息学奥赛
 ---
 
-![](https://cdn.luogu.com.cn/upload/image_hosting/ycm2f9av.png)
+![洛谷炸了](https://cdn.luogu.com.cn/upload/image_hosting/ycm2f9av.png)
 
-![](https://cdn.luogu.com.cn/upload/image_hosting/akus9280.png)
+![洛谷炸了](https://cdn.luogu.com.cn/upload/image_hosting/akus9280.png)
 
-![](https://cdn.luogu.com.cn/upload/image_hosting/rktfergq.png)
+![洛谷炸了](https://cdn.luogu.com.cn/upload/image_hosting/rktfergq.png)
 
 模板代码（[P3808 AC 自动机（简单版）](https://www.luogu.com.cn/problem/P3808)）
 

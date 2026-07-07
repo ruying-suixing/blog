@@ -1,8 +1,8 @@
 ---
 title: 题解：AT_joi2024_yo1c_b 桁 (Digit)
 katex: true
-top_img: /img/2026/top_img1.webp
-cover: /img/2026/top_img1.webp
+top_img: https://image.rusin7.com/file/hexo/cover/kuKbfhkc.webp
+cover: https://image.rusin7.com/file/hexo/cover/kuKbfhkc.webp
 tags:
   - 题解
   - C++
@@ -15,7 +15,7 @@ date: 2026-03-30 19:21:06
 
 # AT_joi2024_yo1c_b 桁 (Digit)题解
 
-[**安利一下自己的博客**](http://ruying-suixing.github.io/ "博客")
+[**安利一下自己的博客**](http://blog.rusin7.com "博客")
 
 [题目传送门](https://www.luogu.com.cn/problem/AT_joi2024_yo1c_b "题目传送门")
 

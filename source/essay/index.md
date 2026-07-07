@@ -4,5 +4,5 @@ date: 2026-03-28 17:08:23
 comments: true
 aside: true
 type: essay
-top_img: background-image:url(/img/top_cover/essay.svg); background-size:100%
+top_img: background-image:url(https://image.rusin7.com/file/hexo/cover/98lXqT5N.svg); background-size:100%
 ---

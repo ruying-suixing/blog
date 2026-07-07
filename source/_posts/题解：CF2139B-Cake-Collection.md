@@ -1,8 +1,8 @@
 ---
 title: 题解：CF2139B Cake Collection
 katex: true
-top_img: /img/2026/top_img1.webp
-cover: /img/2026/top_img1.webp
+top_img: https://image.rusin7.com/file/hexo/cover/kuKbfhkc.webp
+cover: https://image.rusin7.com/file/hexo/cover/kuKbfhkc.webp
 tags:
   - 题解
   - C++
@@ -14,12 +14,14 @@ date: 2026-03-23 21:33:21
 ---
 
 [CF2139B Cake Collection](https://www.luogu.com.cn/problem/CF2139B "CF2139B Cake Collection")  
-[**安利一下*博客*** ](https://ruying-suixing.github.io/ "博客 🥳🎆🎉祝大家 2026 新年快乐")🥳🎆🎉祝大家 2026 新年快乐！
+[**安利一下*博客***](https://blog.rusin7.com/ "博客 🥳🎆🎉祝大家 2026 新年快乐")🥳🎆🎉祝大家 2026 新年快乐！
 
 [纯享阅读区](https://www.luogu.com.cn/article/odez28v6 "纯享阅读区")
+
 ## 题意分析
 
 **核心**：用 $m$ 秒去拿 $n$ 个烤好的蛋糕，要拿的尽量多。用 [贪心](https://oi-wiki.org/basic/greedy/ "贪心") 算法。
+
 ## 思路引导
 
 :::warning[提问]
@@ -58,6 +60,7 @@ sort(a+1,a+n+1,greater<int>());//对数组 a 从大到小进行排序
 :::error[警告]{open}
 不开 `long long` 见祖宗，不用 `1LL` 乘见祖宗。
 :::
+
 ## 完整代码
 
 ```cpp

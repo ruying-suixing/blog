@@ -3,8 +3,8 @@ title: '题解：P14702 [ICPC 2024 Tehran R] Boat'
 abbrlink: 29704
 date: 2026-04-03 20:38:22
 katex: true
-top_img: /img/2026/top_img1.webp
-cover: /img/2026/top_img1.webp
+top_img: https://image.rusin7.com/file/hexo/cover/kuKbfhkc.webp
+cover: https://image.rusin7.com/file/hexo/cover/kuKbfhkc.webp
 tags:
   - 题解
   - C++

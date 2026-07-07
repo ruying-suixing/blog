@@ -10,7 +10,7 @@ tags:
 katex: true
 ---
 
-![alt text](../themes/hexo-theme-anzhiyu-1.7.1/source/img/2026/在-VS-code-上远程管理-Github-仓库项目/image-1.png)
+<!-- ![alt text](../themes/hexo-theme-anzhiyu-1.7.1/source/img/2026/在-VS-code-上远程管理-Github-仓库项目/image-1.png) -->
 
 ## 如果 GitHub 远程是没有提交的空仓库
 

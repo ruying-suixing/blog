@@ -6,8 +6,8 @@ tags:
   - 题解
   - C++
 categories: 洛谷
-top_img: /img/2026/top_img1.webp
-cover: /img/2026/top_img1.webp
+top_img: https://image.rusin7.com/file/hexo/cover/kuKbfhkc.webp
+cover: https://image.rusin7.com/file/hexo/cover/kuKbfhkc.webp
 ai:
   - 本文讲述了如何使用 C++ 完成洛谷的 P13361 [GCJ 2011 Qualification] Bot Trust」水落溪流浅浅，思路清晰、排版精美
 ---

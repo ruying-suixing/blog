@@ -4,5 +4,5 @@ date: 2026-03-28 12:54:08
 aside: false
 background: "#f8f9fe"
 type: "about"
-top_img: background-image:url(/img/top_cover/about.svg); background-size:100%
+top_img: background-image:url(https://image.rusin7.com/file/hexo/cover/oXmWiiJk.svg); background-size:100%
 ---

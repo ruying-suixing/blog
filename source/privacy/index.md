@@ -1,5 +1,6 @@
 ---
 title: privacy
+top_img: background-image:url(https://image.rusin7.com/file/hexo/cover/HjZZVKTX.svg); background-size:100%
 date: 2026-06-04 20:41:14
 ---
 
