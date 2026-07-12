@@ -91,3 +91,9 @@
     - name: 匿名
       amount: -1
       datatime: 1949-10-01
+  tenyear:
+    enable: true # 十年之约开关，true为显示，false为隐藏
+    tips: 十年之约
+    title: 寻找更合适的自己。
+    start: 2026/03/15
+    end: 2036/03/15
