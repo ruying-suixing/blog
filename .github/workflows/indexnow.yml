@@ -9,36 +9,33 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # 自带node/npm，无需额外安装pnpm
       - name: 安装 Hexo 与 sitemap 插件
-        run: pnpm i hexo hexo-generator-sitemap
+        run: npm i hexo hexo-generator-sitemap
 
-      - name: 构建静态页面（生成 public/sitemap.xml）
+      - name: 构建静态页面生成 sitemap
         run: |
           npx hexo clean
           npx hexo generate
-          # 调试：打印public目录文件，看有没有sitemap.xml
-          echo "==== public文件夹内容 ===="
+          echo "==== public目录文件 ===="
           ls -la public
-          echo "==== sitemap.xml 是否存在 ===="
-          test -f public/sitemap.xml && echo "存在" || echo "不存在！"
+          test -f public/sitemap.xml && echo "sitemap.xml 存在" || echo "sitemap.xml 缺失"
 
       - name: 安装 xmlstarlet
         run: sudo apt install xmlstarlet -y
 
-      - name: 提取链接并推送 IndexNow
+      - name: 提取链接推送 IndexNow
         run: |
-          # 修正命名空间读取sitemap
           xmlstarlet sel -N sm=http://www.sitemaps.org/schemas/sitemap/0.9 \
             -t -m "//sm:url/sm:loc" -v . -n public/sitemap.xml > urls.txt
 
-          echo "==== 解析出的待推送链接 ===="
+          echo "==== 待推送链接列表 ===="
           cat urls.txt
 
-          # 逐链接推送
           while read -r url; do
-            if [ -z "$url" ]; then continue; fi
-            echo "推送：$url"
+            [ -z "$url" ] && continue
+            echo "正在推送: $url"
             curl -s "https://api.indexnow.org/indexnow?url=$url&key=$KEY"
-            echo ""
+            echo -e "\n---"
             sleep 0.5
           done < urls.txt
