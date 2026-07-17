@@ -1,21 +1,44 @@
 name: IndexNow Bing Push
 on: push
 jobs:
-  push:
+  push-urls:
     runs-on: ubuntu-latest
     env:
       SITE: https://blog.rusin7.com
       KEY: ea37828cb589480db33d67608a3fb94f
     steps:
       - uses: actions/checkout@v4
-      - name: 安装依赖
-        run: npm i hexo hexo-generator-sitemap
-      - name: 生成 sitemap
-        run: npx hexo g
-      - name: 提取链接推送
+
+      - name: 安装 Hexo 与 sitemap 插件
+        run: pnpm i hexo hexo-generator-sitemap
+
+      - name: 构建静态页面（生成 public/sitemap.xml）
         run: |
-          sudo apt install xmlstarlet -y
-          xmlstarlet sel -T -t -m "//xmlns:url/xmlns:loc" -v . -n public/sitemap.xml | while read u; do
-            curl "https://api.indexnow.org/indexnow?url=$u&key=$KEY"
-            sleep 1
-          done
+          npx hexo clean
+          npx hexo generate
+          # 调试：打印public目录文件，看有没有sitemap.xml
+          echo "==== public文件夹内容 ===="
+          ls -la public
+          echo "==== sitemap.xml 是否存在 ===="
+          test -f public/sitemap.xml && echo "存在" || echo "不存在！"
+
+      - name: 安装 xmlstarlet
+        run: sudo apt install xmlstarlet -y
+
+      - name: 提取链接并推送 IndexNow
+        run: |
+          # 修正命名空间读取sitemap
+          xmlstarlet sel -N sm=http://www.sitemaps.org/schemas/sitemap/0.9 \
+            -t -m "//sm:url/sm:loc" -v . -n public/sitemap.xml > urls.txt
+
+          echo "==== 解析出的待推送链接 ===="
+          cat urls.txt
+
+          # 逐链接推送
+          while read -r url; do
+            if [ -z "$url" ]; then continue; fi
+            echo "推送：$url"
+            curl -s "https://api.indexnow.org/indexnow?url=$url&key=$KEY"
+            echo ""
+            sleep 0.5
+          done < urls.txt
