@@ -1,15 +1,35 @@
 name: "IndexNow"
 on:
-  # 保留每日定时推送
+  push:
+    branches: [ main ]
   schedule:
-    - cron:  '0 0,12 * * *'
-  # 支持 API 调用和手动触发
-  workflow_dispatch:
+    - cron: '0 0,12 * * *'
 
 jobs:
   check-and-submit:
     runs-on: ubuntu-latest
     steps:
+      - name: 轮询等待 sitemap 更新（最长等待10分钟）
+        run: |
+          SITEMAP_URL="https://blog.rusin7.com/sitemap.xml"
+          # 获取当前线上 sitemap 的最后修改时间
+          OLD_LM=$(curl -sI "$SITEMAP_URL" | grep -i "last-modified" | cut -d' ' -f2-)
+          echo "当前 sitemap 最后修改时间: $OLD_LM"
+
+          # 循环检测20次，每次间隔30秒，总计最长等待10分钟
+          for i in {1..20}; do
+            sleep 30
+            NEW_LM=$(curl -sI "$SITEMAP_URL" | grep -i "last-modified" | cut -d' ' -f2-)
+            echo "第 $i 次检测，当前最后修改时间: $NEW_LM"
+            
+            if [ "$NEW_LM" != "$OLD_LM" ] && [ -n "$NEW_LM" ]; then
+              echo "✅ sitemap 已更新，开始推送"
+              exit 0
+            fi
+          done
+          
+          echo "⚠️ 等待超时，仍按计划执行推送"
+      
       - name: submit-to-bing
         uses: bojieyang/indexnow-action@v1
         with:
@@ -18,5 +38,5 @@ jobs:
           since: 1
           since-unit: "day"
           limit: 100
-          key: ${{ secrets.INDEXNOW_KEY }}
-          key-location: ${{ secrets.INDEXNOW_KEY_LOCATION }}
+          key: ea37828cb589480db33d67608a3fb94f
+          key-location: https://blog.rusin7.com/ea37828cb589480db33d67608a3fb94f.txt
