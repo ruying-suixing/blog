@@ -38,5 +38,5 @@ jobs:
           since: 1
           since-unit: "day"
           limit: 100
-          key: ea37828cb589480db33d67608a3fb94f
-          key-location: https://blog.rusin7.com/ea37828cb589480db33d67608a3fb94f.txt
+          key: 38f04a13dd0342549743e0544ce58824
+          key-location: https://blog.rusin7.com/38f04a13dd0342549743e0544ce58824.txt
