@@ -1,41 +1,77 @@
-name: IndexNow Bing Push
-on: push
+name: IndexNow Bing Push (标准密钥文件方案)
+# 仅在推送代码时触发，可按需添加 schedule 定时推送
+on:
+  push:
+    branches: [ main ]
+
 jobs:
-  push-urls:
+  push-indexnow-urls:
     runs-on: ubuntu-latest
     env:
-      SITE: https://blog.rusin7.com
-      KEY: ea37828cb589480db33d67608a3fb94f
+      # 你的站点根域名，末尾不要带斜杠
+      SITE_HOST: https://blog.rusin7.com
+      # 你的IndexNow密钥（文件名 & key参数值）
+      INDEXNOW_KEY: ea37828cb589480db33d67608a3fb94f
+      # 自动拼接密钥文件完整地址，严格遵循文档 keyLocation 规范
+      KEY_LOCATION: https://blog.rusin7.com/ea37828cb589480db33d67608a3fb94f.txt
     steps:
-      - uses: actions/checkout@v4
+      # 拉取博客源码
+      - name: Checkout source code
+        uses: actions/checkout@v4
 
-      # 自带node/npm，无需额外安装pnpm
-      - name: 安装 Hexo 与 sitemap 插件
-        run: npm i hexo hexo-generator-sitemap
+      # 安装Hexo及站点地图插件
+      - name: Install Hexo & sitemap generator
+        run: npm install hexo hexo-generator-sitemap --save-dev
 
-      - name: 构建静态页面生成 sitemap
+      # 生成纯净无换行UTF-8密钥文件到source目录（核心修复换行问题）
+      - name: Generate IndexNow verify key file (no trailing newline)
+        run: echo -n "${{ env.INDEXNOW_KEY }}" > source/${{ env.INDEXNOW_KEY }}.txt
+
+      # 清理+构建Hexo静态站点，生成sitemap.xml
+      - name: Build Hexo static site & sitemap
         run: |
           npx hexo clean
           npx hexo generate
-          echo "==== public目录文件 ===="
-          ls -la public
-          test -f public/sitemap.xml && echo "sitemap.xml 存在" || echo "sitemap.xml 缺失"
+          # 调试：输出public目录校验文件是否生成成功
+          ls -lh public/${{ env.INDEXNOW_KEY }}.txt
+          test -f public/${{ env.INDEXNOW_KEY }}.txt && echo "✅ IndexNow密钥文件构建成功" || echo "❌ 密钥文件缺失"
+          test -f public/sitemap.xml && echo "✅ sitemap.xml 生成成功" || echo "❌ sitemap.xml 缺失"
 
-      - name: 安装 xmlstarlet
-        run: sudo apt install xmlstarlet -y
+      # 安装xml解析工具xmlstarlet、json处理工具jq
+      - name: Install xmlstarlet & jq
+        run: sudo apt update && sudo apt install xmlstarlet jq -y
 
-      - name: 提取链接推送 IndexNow
+      # 从sitemap提取所有url，过滤空行，生成批量提交JSON（符合官方选项二规范）
+      - name: Extract urls & build IndexNow batch json
         run: |
-          xmlstarlet sel -N sm=http://www.sitemaps.org/schemas/sitemap/0.9 \
-            -t -m "//sm:url/sm:loc" -v . -n public/sitemap.xml > urls.txt
+          # 提取sitemap内所有<loc>链接
+          xmlstarlet sel \
+            -N sm=http://www.sitemaps.org/schemas/sitemap/0.9 \
+            -t -m "//sm:url/sm:loc" -v . -n public/sitemap.xml > raw_urls.txt
 
-          echo "==== 待推送链接列表 ===="
-          cat urls.txt
+          # 过滤空行，构造官方标准批量JSON，携带host/key/keyLocation/urlList
+          jq -Rs '
+            split("\n")
+            | map(select(length > 0))
+            | {
+                "host": env.SITE_HOST,
+                "key": env.INDEXNOW_KEY,
+                "keyLocation": env.KEY_LOCATION,
+                "urlList": .
+              }
+          ' raw_urls.txt > indexnow_batch.json
 
-          while read -r url; do
-            [ -z "$url" ] && continue
-            echo "正在推送: $url"
-            curl -s "https://api.indexnow.org/indexnow?url=$url&key=$KEY&keyLocation=https://blog.rusin7.com/$KEY.txt"
-            echo -e "\n---"
-            sleep 0.5
-          done < urls.txt
+          # 输出调试信息，查看待推送链接与请求体
+          echo "===== 待推送URL列表 ====="
+          cat raw_urls.txt
+          echo -e "\n===== IndexNow 批量请求JSON ====="
+          cat indexnow_batch.json
+
+      # 调用IndexNow官方批量推送接口（POST，文档推荐标准方式）
+      - name: Submit urls to IndexNow API
+        run: |
+          curl -X POST \
+            -H "Content-Type: application/json; charset=utf-8" \
+            "https://api.indexnow.org/indexnow" \
+            -d @indexnow_batch.json
+          echo -e "\n===== 推送请求执行完成 ====="
