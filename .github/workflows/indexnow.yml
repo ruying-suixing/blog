@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # 你的站点根域名，末尾不要带斜杠
-      SITE_HOST: https://blog.rusin7.com
+      SITE_HOST: blog.rusin7.com
       # 你的IndexNow密钥（文件名 & key参数值）
       INDEXNOW_KEY: ea37828cb589480db33d67608a3fb94f
       # 自动拼接密钥文件完整地址，严格遵循文档 keyLocation 规范
